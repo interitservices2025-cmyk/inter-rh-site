@@ -9,6 +9,7 @@ import {
   Users,
   Trophy,
   TrendingDown,
+  TrendingUp,
   Percent,
 } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";

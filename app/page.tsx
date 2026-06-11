@@ -51,27 +51,27 @@ export default function HomePage() {
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&auto=format&fit=crop&q=80"
+            src="https://inter-rh.lovable.app/lovable-uploads/hero-office-Bs3K5Tmt.jpeg"
             alt="Bannière cabinet de conseil RH"
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-35"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-900/95 to-navy-950/80" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1b2a4a]/90 via-[#243460]/85 to-[#2d1b4e]/80" />
         </div>
 
         <div className="container-xl relative z-10 py-20 text-center">
           <div className="animate-fade-in max-w-4xl mx-auto">
+            <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-6">
+              Votre cabinet de conseil
+            </span>
+
             <h1
               id="hero-title"
-              className="text-white text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-8"
+              className="text-white text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-8"
             >
-              Votre cabinet <span className="text-primary-500">de conseil</span>
+              Votre partenaire en <span className="text-primary-500">gestion des talents</span>, conseil stratégique et immigration
             </h1>
-
-            <p className="text-white/90 text-lg sm:text-xl max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
-              Votre partenaire en gestion des talents, conseil stratégique et immigration
-            </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
               <Link
@@ -176,7 +176,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&auto=format&fit=crop&q=80"
+                  src="https://inter-rh.lovable.app/lovable-uploads/agency-team-DqlAFmNJ.png"
                   alt="Équipe INTER-RH"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
