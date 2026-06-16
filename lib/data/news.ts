@@ -3,11 +3,11 @@ import { NewsArticle } from "@/lib/types";
 export const newsArticles: NewsArticle[] = [
   {
     id: "1",
-    slug: "pourquoi-investir-dans-le-developpement-des-talents",
-    title: "Pourquoi investir dans le développement des talents en 2026 ?",
+    slug: "former-et-accompagner-pour-reussir-demain",
+    title: "Former et accompagner aujourd'hui pour réussir demain",
     excerpt:
-      "Dans un environnement économique en constante évolution, les entreprises qui n'investissent pas dans leurs équipes prennent un risque considérable pour leur compétitivité.",
-    content: `Dans un environnement économique en constante évolution, les entreprises qui n'investissent pas dans leurs équipes prennent un risque considérable pour leur compétitivité.
+      "Les compétences sont le principal capital des organisations modernes. Dans un environnement économique en constante évolution, les entreprises qui n'investissent pas dans leurs équipes prennent un risque réel.",
+    content: `Les compétences sont le principal capital des organisations modernes. Dans un environnement économique en constante évolution, les entreprises qui n'investissent pas dans leurs équipes prennent un risque réel.
 
 Le développement des talents est devenu un avantage stratégique indispensable pour toute organisation souhaitant rester compétitive. Les études montrent que les entreprises qui investissent dans la formation et le développement de leurs collaborateurs connaissent une réduction significative du turnover et une amélioration de la productivité.
 
@@ -26,18 +26,19 @@ Les organisations qui mettent en place des programmes de développement structur
 
 INTER-RH vous accompagne dans la mise en place de programmes de développement adaptés à vos besoins et à votre budget.`,
     imageUrl:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop&q=80",
-    category: "Talents",
+      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&auto=format&fit=crop&q=80",
+    category: "Actualités",
     publishedAt: "2026-01-21",
     author: "INTER-RH",
   },
   {
     id: "2",
-    slug: "gestion-de-projets-eviter-les-pieges-classiques",
-    title: "Gestion de projets : éviter les pièges classiques",
+    slug: "de-lidee-au-resultat-securiser-la-reussite-de-vos-projets",
+    title:
+      "De l'idée au résultat : sécuriser la réussite de vos projets",
     excerpt:
-      "Dépassements de budget, résultats en deçà des attentes... La gestion de projets RH est semée d'embûches. Voici comment les anticiper et les éviter.",
-    content: `Dépassements de budget, résultats en deçà des attentes, conflits d'équipe... La gestion de projets RH est semée d'embûches. Voici comment les anticiper et les éviter.
+      "De nombreux projets échouent non pas par manque de volonté, mais par manque de méthode. Retards, dépassements de budget, résultats en deçà des attentes...",
+    content: `De nombreux projets échouent non pas par manque de volonté, mais par manque de méthode. Retards, dépassements de budget, résultats en deçà des attentes...
 
 La gestion de projets est une discipline exigeante qui requiert une planification rigoureuse, une communication efficace et une capacité d'adaptation constante.
 
@@ -56,18 +57,19 @@ Les silos entre équipes et la communication insuffisante avec les parties prena
 
 Notre équipe de gestionnaires de projets certifiés vous accompagne de la planification jusqu'à la livraison, en garantissant la maîtrise des délais, des budgets et de la qualité.`,
     imageUrl:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=80",
-    category: "Gestion",
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80",
+    category: "Actualités",
     publishedAt: "2026-01-21",
     author: "INTER-RH",
   },
   {
     id: "3",
-    slug: "leadership-cle-reussite-organisations",
-    title: "Le leadership, clé de la réussite des organisations modernes",
+    slug: "strategie-humaine-au-coeur-des-decisions",
+    title:
+      "Pourquoi les organisations performantes placent la stratégie humaine au cœur de leurs décisions",
     excerpt:
-      "Dans un monde professionnel concurrentiel, la différence entre les organisations qui stagnent et celles qui réussissent réside souvent dans la qualité de leur leadership.",
-    content: `Dans un monde professionnel concurrentiel, la différence entre les organisations qui stagnent et celles qui réussissent réside souvent dans la qualité de leur leadership.
+      "Dans un environnement économique instable et concurrentiel, la différence entre les organisations qui stagnent et celles qui réussissent réside souvent dans la qualité de leur stratégie humaine.",
+    content: `Dans un environnement économique instable et concurrentiel, la différence entre les organisations qui stagnent et celles qui réussissent réside souvent dans la qualité de leur stratégie humaine.
 
 Le leadership n'est plus uniquement une question de hiérarchie ou d'autorité formelle. Aujourd'hui, les organisations les plus performantes cultivent un leadership distribué, où chaque collaborateur est encouragé à prendre des initiatives et à contribuer à la vision collective.
 
@@ -83,8 +85,8 @@ Le développement du leadership ne doit pas être réservé aux cadres dirigeant
 
 Le coaching individuel est l'un des outils les plus puissants pour accélérer le développement des leaders. INTER-RH propose des programmes de coaching certifiés adaptés à chaque niveau de leadership.`,
     imageUrl:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=80",
-    category: "Leadership",
+      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&auto=format&fit=crop&q=80",
+    category: "Actualités",
     publishedAt: "2026-01-21",
     author: "INTER-RH",
   },
@@ -109,7 +111,7 @@ Le Système de classement global (CRS) évalue les candidats sur plusieurs crit�
 Notre équipe d'experts en immigration vous aide à identifier les meilleures stratégies pour maximiser votre score CRS, notamment l'amélioration de vos scores IELTS/TEF, l'obtention d'une nomination provinciale (PNP), ou la validation de vos diplômes étrangers.`,
     imageUrl:
       "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop&q=80",
-    category: "Immigration",
+    category: "Actualités",
     publishedAt: "2026-01-21",
     author: "INTER-RH",
   },

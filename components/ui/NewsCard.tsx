@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, Tag, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react";
 import { NewsArticle } from "@/lib/types";
 import { formatDate } from "@/lib/utils";
 import { cn } from "@/lib/utils";
@@ -35,8 +35,7 @@ export default function NewsCard({
           />
           {/* Category badge */}
           <div className="absolute top-3 left-3">
-            <span className="inline-flex items-center gap-1 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-              <Tag className="w-3 h-3" />
+            <span className="inline-flex items-center bg-primary-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
               {article.category}
             </span>
           </div>

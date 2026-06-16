@@ -27,19 +27,19 @@ const footerLinks = [
 
 const socialLinks = [
   {
-    href: "https://facebook.com",
+    href: "https://web.facebook.com/interhumanressources",
     label: "Facebook",
     icon: Facebook,
     id: "footer-facebook",
   },
   {
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/interhumanressources/",
     label: "Instagram",
     icon: Instagram,
     id: "footer-instagram",
   },
   {
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/company/inter-rh",
     label: "LinkedIn",
     icon: Linkedin,
     id: "footer-linkedin",
@@ -124,20 +124,12 @@ export default function Footer() {
 
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary-400 shrink-0" />
-                <div className="text-sm">
-                  <a
-                    href="tel:+237679033398"
-                    className="text-blue-200/70 hover:text-white transition-colors block"
-                  >
-                    +237 679 033 398
-                  </a>
-                  <a
-                    href="tel:+237695296446"
-                    className="text-blue-200/70 hover:text-white transition-colors block"
-                  >
-                    +237 695 296 446
-                  </a>
-                </div>
+                <a
+                  href="tel:+237679033398"
+                  className="text-blue-200/70 hover:text-white transition-colors text-sm"
+                >
+                  +237 679 033 398 / +237 695 296 446
+                </a>
               </div>
 
               <div className="flex items-center gap-3">

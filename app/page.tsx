@@ -14,14 +14,15 @@ import {
 import ServiceCard from "@/components/ui/ServiceCard";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import NewsCard from "@/components/ui/NewsCard";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { services } from "@/lib/data/services";
 import { testimonials } from "@/lib/data/testimonials";
 import { newsArticles } from "@/lib/data/news";
 
 export const metadata: Metadata = {
-  title: "INTER-RH — Votre Cabinet de Conseil RH | Yaoundé, Cameroun",
+  title: "INTER-RH — Cabinet de conseil RH, stratégie & immigration",
   description:
-    "Votre partenaire en gestion des talents, conseil stratégique et immigration. Cabinet RH basé à Yaoundé, Cameroun. Notés 5/5 sur Google.",
+    "Votre partenaire en gestion des talents, conseil stratégique et immigration.",
   alternates: {
     canonical: "/",
   },
@@ -54,7 +55,7 @@ export default function HomePage() {
             src="https://inter-rh.lovable.app/lovable-uploads/hero-office-Bs3K5Tmt.jpeg"
             alt="Bannière cabinet de conseil RH"
             fill
-            className="object-cover opacity-35"
+            className="object-cover opacity-30"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#1b2a4a]/90 via-[#243460]/85 to-[#2d1b4e]/80" />
@@ -62,16 +63,16 @@ export default function HomePage() {
 
         <div className="container-xl relative z-10 py-20 text-center">
           <div className="animate-fade-in max-w-4xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-6">
-              Votre cabinet de conseil
-            </span>
-
             <h1
               id="hero-title"
-              className="text-white text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-8"
+              className="text-white text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-8"
             >
-              Votre partenaire en <span className="text-primary-500">gestion des talents</span>, conseil stratégique et immigration
+              Votre cabinet <span className="text-primary-500">de conseil</span>
             </h1>
+
+            <p className="text-white/90 text-lg sm:text-xl max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
+              Votre partenaire en gestion des talents, conseil stratégique et immigration
+            </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
               <Link
@@ -102,7 +103,7 @@ export default function HomePage() {
         <div className="container-xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Colonne Gauche */}
-            <div>
+            <AnimatedSection animation="slide-left">
               <div className="border-left-accent mb-6">
                 <h2
                   id="about-intro-title"
@@ -127,16 +128,16 @@ export default function HomePage() {
                   </a>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Colonne Droite */}
-            <div>
+            <AnimatedSection animation="slide-right" delay={0.2}>
               <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                 Nous accompagnons les entreprises et les particuliers dans le recrutement, le
                 développement organisationnel, la gestion de projets, la formation professionnelle
                 et les démarches d'immigration.
               </p>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -151,7 +152,7 @@ export default function HomePage() {
         <div className="container-xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Column */}
-            <div>
+            <AnimatedSection animation="slide-left">
               <span className="text-primary-500 font-bold text-xs tracking-widest uppercase mb-3 block">
                 Qui sommes-nous ?
               </span>
@@ -170,10 +171,10 @@ export default function HomePage() {
                 En savoir plus sur nous
                 <ArrowRight className="w-4 h-4" />
               </Link>
-            </div>
+            </AnimatedSection>
 
             {/* Right Column - Team Image */}
-            <div className="relative">
+            <AnimatedSection animation="slide-right" delay={0.2} className="relative">
               <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl">
                 <Image
                   src="https://inter-rh.lovable.app/lovable-uploads/agency-team-DqlAFmNJ.png"
@@ -183,7 +184,7 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -196,32 +197,28 @@ export default function HomePage() {
         aria-labelledby="services-title"
       >
         <div className="container-xl">
-          <div className="text-center mb-14">
+          <AnimatedSection animation="fade-in" className="text-center mb-14">
             <h2 id="services-title" className="text-3xl md:text-4xl font-bold text-navy-500 mb-4">
               Nos domaines de compétences
             </h2>
             <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto">
               Nos experts vous guident tout au long de votre démarche
             </p>
-          </div>
+          </AnimatedSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.slice(0, 3).map((service) => (
-              <ServiceCard key={service.id} service={service} variant="image" />
-            ))}
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto mt-8">
-            {services.slice(3).map((service) => (
-              <ServiceCard key={service.id} service={service} variant="image" />
-            ))}
-          </div>
+          <AnimatedSection animation="slide-up" delay={0.1}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.slice(0, 3).map((service) => (
+                <ServiceCard key={service.id} service={service} variant="image" />
+              ))}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto mt-8">
+              {services.slice(3).map((service) => (
+                <ServiceCard key={service.id} service={service} variant="image" />
+              ))}
+            </div>
+          </AnimatedSection>
 
-          <div className="text-center mt-12">
-            <Link href="/nos-services" className="btn-outline-dark text-sm">
-              Voir tous nos services
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -235,7 +232,7 @@ export default function HomePage() {
         <div className="container-xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Image */}
-            <div className="relative">
+            <AnimatedSection animation="slide-left" className="relative">
               <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-xl">
                 <Image
                   src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&auto=format&fit=crop&q=80"
@@ -245,10 +242,10 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Content */}
-            <div>
+            <AnimatedSection animation="slide-right" delay={0.2}>
               <span className="text-primary-500 font-bold text-xs tracking-widest uppercase mb-3 block">
                 Pourquoi nous choisir ?
               </span>
@@ -300,7 +297,7 @@ export default function HomePage() {
                 Contactez-nous
                 <ArrowRight className="w-4 h-4" />
               </Link>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -310,7 +307,7 @@ export default function HomePage() {
           =================================================== */}
       <section className="bg-[#e63946] py-16 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="container-xl relative z-10 text-center max-w-3xl">
+        <AnimatedSection animation="scale-in" className="container-xl relative z-10 text-center max-w-3xl">
           <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
             <Star className="w-6 h-6 text-white fill-white" />
           </div>
@@ -327,7 +324,7 @@ export default function HomePage() {
             Contactez-nous
             <ArrowRight className="w-4 h-4" />
           </Link>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* ===================================================
@@ -338,8 +335,7 @@ export default function HomePage() {
         aria-labelledby="testimonials-title"
       >
         <div className="container-xl">
-          {/* Header */}
-          <div className="text-center mb-12">
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-white border border-gray-200 shadow-sm text-gray-700 font-semibold text-sm px-4 py-2 rounded-full mb-6">
               <GoogleG />
               AVIS GOOGLE
@@ -363,25 +359,27 @@ export default function HomePage() {
               <span className="text-navy-500 font-extrabold text-base">5,0 / 5</span>
               <span className="text-gray-500 text-sm">— Inter-RH sur Google</span>
             </div>
-          </div>
+          </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {testimonials.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
-          </div>
+          <AnimatedSection animation="slide-up" delay={0.1}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              {testimonials.map((testimonial) => (
+                <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+              ))}
+            </div>
 
-          <div className="text-center">
-            <a
-              href="https://g.page/r/CcboD9Wi2Pv_EAI/review"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-sm inline-flex items-center gap-2"
-            >
-              Laisser un avis sur Google
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          </div>
+            <div className="text-center">
+              <a
+                href="https://g.page/r/CcboD9Wi2Pv_EAI/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-sm inline-flex items-center gap-2"
+              >
+                Laisser un avis sur Google
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -393,7 +391,7 @@ export default function HomePage() {
         aria-labelledby="news-title"
       >
         <div className="container-xl">
-          <div className="flex items-end justify-between mb-12">
+          <AnimatedSection animation="slide-up" className="flex items-end justify-between mb-12">
             <div>
               <span className="inline-flex items-center gap-1.5 bg-primary-50 text-primary-500 text-xs font-semibold px-3 py-1 rounded-full mb-3">
                 Actualités
@@ -406,23 +404,25 @@ export default function HomePage() {
               href="/actus"
               className="hidden sm:flex items-center gap-2 text-primary-500 font-semibold text-sm hover:gap-3 transition-all duration-200"
             >
-              Voir toutes les actus
+              Tous les articles
               <ArrowRight className="w-4 h-4" />
             </Link>
-          </div>
+          </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {newsArticles.slice(0, 3).map((article) => (
-              <NewsCard key={article.id} article={article} />
-            ))}
-          </div>
+          <AnimatedSection animation="slide-up" delay={0.15}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {newsArticles.slice(0, 3).map((article) => (
+                <NewsCard key={article.id} article={article} />
+              ))}
+            </div>
 
-          <div className="text-center mt-10 sm:hidden">
-            <Link href="/actus" className="btn-outline-dark text-sm">
-              Voir toutes les actus
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+            <div className="text-center mt-10 sm:hidden">
+              <Link href="/actus" className="btn-outline-dark text-sm">
+                Tous les articles
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </>

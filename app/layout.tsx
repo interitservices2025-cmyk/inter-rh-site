@@ -14,7 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://inter-rh.com"),
   title: {
-    default: "INTER-RH — Cabinet de Conseil en RH | Yaoundé, Cameroun",
+    default: "INTER-RH — Cabinet de conseil RH, stratégie & immigration",
     template: "%s | INTER-RH",
   },
   description:
