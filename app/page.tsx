@@ -5,7 +5,6 @@ import {
   ArrowRight,
   CheckCircle,
   Shield,
-  Eye,
   TrendingUp,
   Star,
   Phone,
@@ -46,17 +45,17 @@ export default function HomePage() {
           SECTION 1 : HERO SECTION
           =================================================== */}
       <section
-        className="relative overflow-hidden min-h-[85vh] flex items-center bg-navy-950 text-white"
+        id="hero"
+        className="relative overflow-hidden min-h-[85vh] flex items-center bg-navy-900 text-white"
         aria-labelledby="hero-title"
       >
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://inter-rh.lovable.app/lovable-uploads/hero-office-Bs3K5Tmt.jpeg"
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&auto=format&fit=crop&q=80"
             alt="Bannière cabinet de conseil RH"
             fill
             className="object-cover opacity-30"
-            priority
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#1b2a4a]/90 via-[#243460]/85 to-[#2d1b4e]/80" />
         </div>
@@ -75,14 +74,14 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-              <Link
+              <Link prefetch={false}
                 href="/notre-agence"
                 className="btn-primary text-sm px-8 py-3.5 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/35 hover:-translate-y-0.5 transition-all duration-300"
               >
                 En savoir plus sur nous
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link
+              <Link prefetch={false}
                 href="/contact"
                 className="btn-outline text-sm px-8 py-3.5 hover:-translate-y-0.5 transition-all duration-300"
               >
@@ -114,15 +113,15 @@ export default function HomePage() {
               </div>
 
               {/* Boîte d'appel direct type Lovable */}
-              <div className="mt-8 bg-primary-500 text-white rounded-3xl p-6 flex items-center gap-4 hover:shadow-lg transition-all duration-300 max-w-md">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                  <Phone className="w-6 h-6 text-white" />
+              <div className="mt-8 bg-primary-500 text-white rounded-3xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 hover:shadow-lg transition-all duration-300 max-w-md">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-xs text-white/80 font-bold uppercase tracking-wider">Appelez-nous</p>
+                  <p className="text-[10px] sm:text-xs text-white/80 font-bold uppercase tracking-wider">Appelez-nous</p>
                   <a
                     href="tel:+237679033398"
-                    className="text-white font-extrabold text-base md:text-lg block hover:underline"
+                    className="text-white font-extrabold text-xs sm:text-base md:text-lg block hover:underline whitespace-nowrap"
                   >
                     +237 679 033 398 / +237 695 296 446
                   </a>
@@ -167,7 +166,7 @@ export default function HomePage() {
                 Nous plaçons l'humain au centre de chaque démarche et offrons des solutions professionnelles 
                 adaptées aux besoins des particuliers et des organisations.
               </p>
-              <Link href="/notre-agence" className="btn-primary text-sm">
+              <Link prefetch={false} href="/notre-agence" className="btn-primary text-sm">
                 En savoir plus sur nous
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -177,7 +176,7 @@ export default function HomePage() {
             <AnimatedSection animation="slide-right" delay={0.2} className="relative">
               <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl">
                 <Image
-                  src="https://inter-rh.lovable.app/lovable-uploads/agency-team-DqlAFmNJ.png"
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80"
                   alt="Équipe INTER-RH"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -293,7 +292,7 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <Link href="/contact" className="btn-primary text-sm">
+              <Link prefetch={false} href="/contact" className="btn-primary text-sm">
                 Contactez-nous
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -317,7 +316,7 @@ export default function HomePage() {
           <p className="text-white/80 text-sm md:text-base mb-8 max-w-xl mx-auto leading-relaxed">
             Contactez-nous dès aujourd'hui en remplissant notre formulaire en ligne et nous vous recontacterons dans les plus brefs délais.
           </p>
-          <Link
+          <Link prefetch={false}
             href="/contact"
             className="inline-flex items-center gap-2 bg-white text-primary-500 hover:bg-white/95 font-bold px-6 py-3 rounded-full transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 text-sm"
           >
@@ -400,7 +399,7 @@ export default function HomePage() {
                 Dernières nouvelles
               </h2>
             </div>
-            <Link
+            <Link prefetch={false}
               href="/actus"
               className="hidden sm:flex items-center gap-2 text-primary-500 font-semibold text-sm hover:gap-3 transition-all duration-200"
             >
@@ -417,7 +416,7 @@ export default function HomePage() {
             </div>
 
             <div className="text-center mt-10 sm:hidden">
-              <Link href="/actus" className="btn-outline-dark text-sm">
+              <Link prefetch={false} href="/actus" className="btn-outline-dark text-sm">
                 Tous les articles
                 <ArrowRight className="w-4 h-4" />
               </Link>

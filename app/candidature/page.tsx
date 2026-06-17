@@ -3,18 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Star,
   FileText,
   Briefcase,
   GraduationCap,
   CheckCircle,
-  ShieldAlert,
   Coins,
   MapPin,
   Lock,
+  Trophy,
 } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";
 import ApplicationForm from "@/components/forms/ApplicationForm";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
   title: "Espace Candidats — Coaching & Opportunités | INTER-RH",
@@ -31,39 +31,62 @@ export const metadata: Metadata = {
 const candidateServices = [
   {
     icon: FileText,
-    title: "Rédaction de CV & LinkedIn",
+    title: "CV & Lettre impactants",
     description:
-      "Correction et optimisation professionnelle de votre CV et de votre profil LinkedIn, en français et en anglais, pour capter l'intérêt des recruteurs.",
+      "Nous révisons votre CV et lettre de motivation pour les rendre percutants et adaptés aux attentes des recruteurs.",
+    features: [
+      "Analyse personnalisée de votre profil",
+      "Rédaction ou refonte professionnelle",
+      "Conseils LinkedIn et profils en ligne",
+      "Versions française et anglaise",
+    ],
   },
   {
     icon: GraduationCap,
-    title: "Coaching & Préparation aux entretiens",
+    title: "Préparation aux entretiens & coaching",
     description:
-      "Simulations d'entretiens et coaching d'objectifs personnalisés pour vous aider à argumenter sereinement et avec assurance lors de vos rendez-vous.",
+      "Préparez-vous efficacement avec nos experts RH : simulations réalistes et feedback constructif.",
+    features: [
+      "Simulations d'entretiens (visio ou présentiel)",
+      "Conseils langage corporel et questions pièges",
+      "Coaching individuel d'objectifs de carrière",
+      "Suivi post-entretien",
+    ],
   },
   {
     icon: Briefcase,
-    title: "Matching & Offres Exclusives",
+    title: "Offres exclusives & matching",
     description:
-      "Accès privilégié à nos opportunités de carrière internes, y compris à l'international (mobilité vers le Canada) et lors de salons d'emploi (job fairs).",
+      "Inscrivez-vous dans notre base de talents pour être contacté en priorité sur des postes adaptés à votre profil.",
+    features: [
+      "Diffusion de votre CV à nos partenaires",
+      "Alertes offres personnalisées",
+      "Accompagnement mobilité internationale",
+      "Événements networking et job fairs",
+    ],
   },
 ];
 
 const guarantees = [
   {
     icon: Coins,
-    title: "Gratuité des services",
-    description: "La majorité de nos services d'orientation et de placement sont entièrement gratuits pour les candidats sélectionnés.",
+    title: "Gratuité",
+    description: "La plupart de nos services candidats sont offerts.",
+  },
+  {
+    icon: Trophy,
+    title: "Expertise",
+    description: "Accompagnement par des consultants RH expérimentés.",
   },
   {
     icon: Lock,
-    title: "Confidentialité totale",
-    description: "Vos données et votre projet professionnel sont traités avec le plus haut niveau de discrétion vis-à-vis de votre employeur actuel.",
+    title: "Confidentialité",
+    description: "Vos données restent strictement confidentielles.",
   },
   {
     icon: MapPin,
-    title: "Expertise locale & internationale",
-    description: "Un ancrage fort au Cameroun allié à des opportunités concrètes de développement de carrière à l'international.",
+    title: "Résultats",
+    description: "Des centaines de placements réussis au Cameroun et à l'étranger.",
   },
 ];
 
@@ -87,72 +110,130 @@ export default function CandidaturePage() {
         ctaSecondary={{ label: "Voir les offres", href: "/offres" }}
       />
 
-      {/* ===== SERVICES CANDIDATS ===== */}
-      <section className="section-white" aria-labelledby="cand-services-title">
+      {/* ===== INTRO SECTION ===== */}
+      <section className="section-white" aria-labelledby="cand-intro-title">
         <div className="container-xl">
-          <div className="text-center mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <AnimatedSection animation="slide-left" className="lg:col-span-7">
+              <p className="section-overline">Votre carrière, notre priorité</p>
+              <h2 id="cand-intro-title" className="section-title">
+                Un accompagnement personnalisé
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Chez INTER-RH, nous ouvrons aux candidats les portes d'opportunités exclusives, souvent non publiées, 
+                grâce à notre réseau d'entreprises partenaires au Cameroun et à l'international. 
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                Notre équipe de consultants expérimentés vous conseille à chaque étape importante de votre parcours professionnel : 
+                orientation, outils de candidature et développement de compétences clés.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection animation="slide-right" delay={0.2} className="lg:col-span-5 relative h-[300px] rounded-3xl overflow-hidden shadow-lg">
+              <Image
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80"
+                alt="Accompagnement de carrière INTER-RH"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SERVICES CANDIDATS ===== */}
+      <section className="section-light" aria-labelledby="cand-services-title">
+        <div className="container-xl">
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
             <p className="section-overline">ACCOMPAGNEMENT DE CARRIÈRE</p>
             <h2 id="cand-services-title" className="section-title">
               Notre accompagnement pour les candidats
             </h2>
-          </div>
+          </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {candidateServices.map((svc) => (
-              <div
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {candidateServices.map((svc, idx) => (
+              <AnimatedSection
                 key={svc.title}
-                className="card p-8 text-center group hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
+                animation="slide-up"
+                delay={idx * 0.1}
+                className="card p-8 flex flex-col justify-between hover:shadow-lg transition-all duration-300 bg-white"
               >
                 <div>
-                  <div className="w-16 h-16 rounded-2xl bg-primary-50 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-100 transition-colors">
-                    <svc.icon className="w-8 h-8 text-primary-500" />
+                  <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center mb-6">
+                    <svc.icon className="w-7 h-7 text-primary-500" />
                   </div>
-                  <h3 className="font-extrabold text-navy-500 mb-4 text-base">{svc.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{svc.description}</p>
+                  <h3 className="font-extrabold text-navy-500 mb-3 text-base">{svc.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6">{svc.description}</p>
+                  
+                  <ul className="space-y-2.5">
+                    {svc.features.map((feat) => (
+                      <li key={feat} className="flex items-start gap-2.5">
+                        <CheckCircle className="w-4 h-4 text-primary-500 shrink-0 mt-0.5" />
+                        <span className="text-gray-600 text-xs">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
+                
+                <div className="mt-8">
+                  <Link prefetch={false} href="#formulaire" className="btn-outline-dark text-xs py-2.5 px-5 w-full justify-center">
+                    En savoir plus
+                  </Link>
+                </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
       {/* ===== GUARANTEES ===== */}
-      <section className="section-light" aria-labelledby="guarantees-title">
+      <section className="section-white" aria-labelledby="guarantees-title">
         <div className="container-xl">
-          <div className="text-center mb-12">
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
             <p className="section-overline">NOS ENGAGEMENTS</p>
             <h2 id="guarantees-title" className="section-title">
-              Nos garanties pour votre succès
+              Un accompagnement pensé pour votre réussite
             </h2>
-          </div>
+          </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {guarantees.map((g) => (
-              <div key={g.title} className="card bg-white p-6 rounded-2xl flex items-start gap-4 border border-gray-100 hover:shadow-md transition-shadow">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {guarantees.map((g, idx) => (
+              <AnimatedSection
+                key={g.title}
+                animation="slide-up"
+                delay={idx * 0.08}
+                className="card-bordered bg-white p-6 flex flex-col gap-4 hover:shadow-md transition-shadow"
+              >
                 <div className="w-12 h-12 rounded-xl bg-navy-50 flex items-center justify-center shrink-0">
                   <g.icon className="w-6 h-6 text-navy-500" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-navy-500 text-sm mb-2">{g.title}</h3>
+                  <h3 className="font-bold text-navy-500 text-base mb-2">{g.title}</h3>
                   <p className="text-gray-500 text-xs leading-relaxed">{g.description}</p>
                 </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
       {/* ===== HOW IT WORKS ===== */}
-      <section className="section-white" aria-labelledby="how-title">
+      <section className="section-light" aria-labelledby="how-title">
         <div className="container-xl">
-          <div className="text-center mb-12">
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
             <p className="section-overline">COMMENT ÇA MARCHE</p>
             <h2 id="how-title" className="section-title">Notre processus de sélection en 4 étapes</h2>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step, index) => (
-              <div key={step.number} className="relative">
+              <AnimatedSection
+                key={step.number}
+                animation="slide-up"
+                delay={index * 0.08}
+                className="relative"
+              >
                 <div className="card-bordered p-6 text-center h-full bg-white hover:border-primary-300 transition-colors">
                   <div className="w-12 h-12 rounded-full bg-primary-500 flex items-center justify-center mx-auto mb-4 shadow-sm">
                     <span className="text-white font-bold text-sm">{step.number}</span>
@@ -166,7 +247,7 @@ export default function CandidaturePage() {
                     <ArrowRight className="w-6 h-6 text-primary-400" />
                   </div>
                 )}
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -175,12 +256,12 @@ export default function CandidaturePage() {
       {/* ===== APPLICATION FORM ===== */}
       <section
         id="formulaire"
-        className="section-light"
+        className="section-white"
         aria-labelledby="form-title"
       >
         <div className="container-xl">
           <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-10">
+            <AnimatedSection animation="fade-in" className="text-center mb-10">
               <p className="section-overline">POSTULEZ EN LIGNE</p>
               <h2 id="form-title" className="section-title">
                 Déposez votre candidature spontanée
@@ -189,11 +270,11 @@ export default function CandidaturePage() {
                 Remplissez le formulaire ci-dessous pour intégrer notre vivier de talents.
                 Notre équipe reviendra vers vous si votre profil correspond à un besoin.
               </p>
-            </div>
+            </AnimatedSection>
 
-            <div className="card p-8 md:p-10 bg-white">
+            <AnimatedSection animation="slide-up" delay={0.15} className="card p-8 md:p-10 border border-gray-100 bg-white">
               <ApplicationForm />
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>

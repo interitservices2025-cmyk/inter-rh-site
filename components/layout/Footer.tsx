@@ -50,11 +50,11 @@ export default function Footer() {
   return (
     <footer className="bg-navy-500 text-white" role="contentinfo">
       <div className="container-xl py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
           {/* Brand Column */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-3">
             {/* Logo */}
-            <Link href="/" className="inline-block mb-6" aria-label="INTER-RH — Accueil">
+            <Link prefetch={false} href="/" className="inline-block mb-6" aria-label="INTER-RH — Accueil">
               <div className="bg-white rounded-2xl px-5 py-3 inline-block">
                 <div className="relative w-36 h-10">
                   <Image
@@ -76,12 +76,12 @@ export default function Footer() {
           </div>
 
           {/* Services Column */}
-          <div>
+          <div className="lg:col-span-3">
             <h3 className="font-bold text-white mb-6 text-base">Nos services</h3>
             <ul className="space-y-3">
               {footerServices.map((svc) => (
                 <li key={svc.href}>
-                  <Link
+                  <Link prefetch={false}
                     href={svc.href}
                     className="text-blue-200/70 hover:text-primary-400 text-sm transition-colors duration-150"
                   >
@@ -93,12 +93,12 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Column */}
-          <div>
+          <div className="lg:col-span-2">
             <h3 className="font-bold text-white mb-6 text-base">Liens utiles</h3>
             <ul className="space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <Link prefetch={false}
                     href={link.href}
                     className="text-blue-200/70 hover:text-primary-400 text-sm transition-colors duration-150"
                   >
@@ -110,33 +110,31 @@ export default function Footer() {
           </div>
 
           {/* Contact Column */}
-          <div>
+          <div className="lg:col-span-4">
             <h3 className="font-bold text-white mb-6 text-base">Adresse</h3>
             <address className="not-italic space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" />
-                <p className="text-blue-200/70 text-sm leading-relaxed">
-                  Rue 2.365, Yaoundé-Tsinga, Cameroun
-                  <br />
-                  (Derrière Tradex)
+                <p className="text-blue-200/70 text-xs sm:text-sm leading-relaxed whitespace-nowrap">
+                  Rue 2.365, Yaoundé-Tsinga, Cameroun (Derrière Tradex)
                 </p>
               </div>
 
-              <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-primary-400 shrink-0" />
+              <div className="flex items-start gap-3">
+                <Phone className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" />
                 <a
                   href="tel:+237679033398"
-                  className="text-blue-200/70 hover:text-white transition-colors text-sm"
+                  className="text-blue-200/70 hover:text-white transition-colors text-xs sm:text-sm whitespace-nowrap"
                 >
                   +237 679 033 398 / +237 695 296 446
                 </a>
               </div>
 
-              <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-primary-400 shrink-0" />
+              <div className="flex items-start gap-3">
+                <Mail className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" />
                 <a
                   href="mailto:contact@inter-rh.com"
-                  className="text-blue-200/70 hover:text-white text-sm transition-colors"
+                  className="text-blue-200/70 hover:text-white text-xs sm:text-sm transition-colors whitespace-nowrap"
                 >
                   contact@inter-rh.com
                 </a>
@@ -175,10 +173,10 @@ export default function Footer() {
             © 2026 INTER-RH — Inter Human ressources. Tous droits réservés.
           </p>
           <div className="flex items-center gap-6 text-sm text-blue-200/50">
-            <Link href="/mentions-legales" className="hover:text-white transition-colors">
+            <Link prefetch={false} href="/mentions-legales" className="hover:text-white transition-colors">
               Mentions légales
             </Link>
-            <Link href="/confidentialite" className="hover:text-white transition-colors">
+            <Link prefetch={false} href="/confidentialite" className="hover:text-white transition-colors">
               Confidentialité
             </Link>
           </div>

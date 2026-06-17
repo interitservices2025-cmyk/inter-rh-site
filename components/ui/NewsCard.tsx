@@ -8,13 +8,11 @@ import { cn } from "@/lib/utils";
 interface NewsCardProps {
   article: NewsArticle;
   className?: string;
-  featured?: boolean;
 }
 
 export default function NewsCard({
   article,
   className,
-  featured = false,
 }: NewsCardProps) {
   return (
     <article
@@ -63,7 +61,7 @@ export default function NewsCard({
         </p>
 
         {/* Read more */}
-        <Link
+        <Link prefetch={false}
           href={`/actus/${article.slug}`}
           className="inline-flex items-center gap-1.5 text-primary-500 font-semibold text-sm mt-2 hover:gap-3 transition-all duration-200"
           aria-label={`Lire l'article : ${article.title}`}

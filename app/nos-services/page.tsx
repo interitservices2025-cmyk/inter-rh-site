@@ -1,113 +1,110 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Building2, Users, Briefcase } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";
 import ServiceCard from "@/components/ui/ServiceCard";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { services } from "@/lib/data/services";
 
 export const metadata: Metadata = {
   title: "Nos Services — Gestion des Talents, Conseil, Immigration | INTER-RH",
   description:
-    "Découvrez l'ensemble de nos services : gestion des talents & recrutement, conseil stratégique, gestion de projets, formation & coaching, et accompagnement en immigration.",
+    "Que vous soyez entreprise, candidat ou institution, nous mettons notre expertise à votre service. Découvrez l'ensemble de nos domaines de compétences.",
   alternates: { canonical: "/nos-services" },
   openGraph: {
     title: "Nos Services | INTER-RH",
     description:
-      "5 domaines d'expertise pour accompagner votre organisation et votre développement.",
+      "Cinq expertises au service des entreprises, des candidats et des institutions.",
   },
 };
+
+const portals = [
+  {
+    icon: Building2,
+    title: "Entreprise",
+    description: "Solutions RH sur mesure : recrutement, intégration, gestion des talents et accompagnement de croissance.",
+    href: "/employeurs",
+  },
+  {
+    icon: Users,
+    title: "Candidat",
+    description: "Coaching personnalisé, CV impactant, préparation aux entretiens et accès à des offres exclusives.",
+    href: "/candidature",
+  },
+  {
+    icon: Briefcase,
+    title: "Offre",
+    description: "Publication et gestion d'appels d'offres et de candidatures, au Cameroun comme à l'international.",
+    href: "/offres",
+  },
+];
 
 export default function NosServicesPage() {
   return (
     <>
       <PageHero
         overline="CE QUE NOUS FAISONS"
-        title="Nos Services"
-        titleHighlight="& Expertises"
-        subtitle="5 domaines de compétences pour accompagner votre organisation dans tous ses défis RH et stratégiques."
+        title="Nos services"
+        subtitle="Que vous soyez entreprise, candidat ou institution, nous mettons notre expertise à votre service."
         breadcrumbs={[{ label: "Nos services" }]}
         cta={{ label: "Nous contacter", href: "/contact" }}
       />
 
-      {/* Services Grid */}
-      <section className="section-white" aria-labelledby="services-list-title">
+      {/* ===== PORTALS SECTION ===== */}
+      <section className="section-white" aria-labelledby="portals-heading">
         <div className="container-xl">
-          <div className="text-center mb-14">
-            <h2 id="services-list-title" className="section-title">
-              Nos domaines de compétences
-            </h2>
-            <p className="section-subtitle">
-              Nos experts vous guident tout au long de votre démarche
-            </p>
-          </div>
-
-          <div className="space-y-24">
-            {services.map((service, index) => (
-              <div
-                key={service.id}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? "lg:grid-flow-dense" : ""
-                }`}
+          <h2 id="portals-heading" className="sr-only">Nos portails d'accès</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {portals.map((portal, idx) => (
+              <AnimatedSection
+                key={portal.title}
+                animation="slide-up"
+                delay={idx * 0.1}
+                className="card p-8 flex flex-col justify-between hover:shadow-lg transition-all duration-300 border border-gray-50"
               >
-                {/* Image */}
-                <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
-                  <div className="relative h-72 rounded-3xl overflow-hidden shadow-xl">
-                    <img
-                      src={service.imageUrl}
-                      alt={service.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-
-                {/* Content */}
                 <div>
-                  <p className="section-overline mb-4">SERVICE {String(index + 1).padStart(2, "0")}</p>
-                  <h3 className="text-2xl md:text-3xl font-bold text-navy-500 mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    {service.fullDescription}
-                  </p>
-
-                  <ul className="space-y-3 mb-8">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center shrink-0 mt-0.5">
-                          <div className="w-2 h-2 rounded-full bg-primary-500" />
-                        </div>
-                        <span className="text-gray-700 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="btn-primary"
-                  >
-                    En savoir plus
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  <div className="w-12 h-12 rounded-xl bg-navy-50 flex items-center justify-center mb-6">
+                    <portal.icon className="w-6 h-6 text-navy-500" />
+                  </div>
+                  <h3 className="font-extrabold text-navy-500 text-lg mb-4">{portal.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6">{portal.description}</p>
                 </div>
-              </div>
+                <Link prefetch={false}
+                  href={portal.href}
+                  className="inline-flex items-center gap-1.5 text-primary-500 text-sm font-bold hover:gap-2 transition-all duration-200"
+                >
+                  En savoir plus
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-primary-500 py-16">
-        <div className="container-xl text-center">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4">
-            Vous avez un besoin spécifique ?
-          </h2>
-          <p className="text-white/80 text-lg mb-8">
-            Contactez-nous pour une consultation sur mesure.
-          </p>
-          <Link href="/contact" className="btn-secondary">
-            Prendre contact
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+      {/* ===== EXPERTISES GRID ===== */}
+      <section className="section-light" aria-labelledby="expertises-title">
+        <div className="container-xl">
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
+            <p className="section-overline">Nos expertises</p>
+            <h2 id="expertises-title" className="section-title">
+              Cinq domaines de compétences
+            </h2>
+          </AnimatedSection>
+
+          <AnimatedSection animation="slide-up" delay={0.15}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.slice(0, 3).map((service) => (
+                <ServiceCard key={service.id} service={service} variant="image" />
+              ))}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto mt-8">
+              {services.slice(3).map((service) => (
+                <ServiceCard key={service.id} service={service} variant="image" />
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </>

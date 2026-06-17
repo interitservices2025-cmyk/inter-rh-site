@@ -97,7 +97,7 @@ export default function MobileMenu({
             {navLinks.map((link) =>
               link.hasDropdown ? null : (
                 <li key={link.href}>
-                  <Link
+                  <Link prefetch={false}
                     href={link.href}
                     className={cn(
                       "flex items-center justify-between px-4 py-3 rounded-xl font-semibold text-sm transition-colors duration-150",
@@ -125,7 +125,7 @@ export default function MobileMenu({
                 const Icon = serviceIcons[svc.label as keyof typeof serviceIcons];
                 return (
                   <li key={svc.href}>
-                    <Link
+                    <Link prefetch={false}
                       href={svc.href}
                       className={cn(
                         "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors duration-150",
@@ -151,7 +151,7 @@ export default function MobileMenu({
 
         {/* CTA */}
         <div className="px-6 py-6 border-t border-gray-100">
-          <Link
+          <Link prefetch={false}
             href="/contact"
             className="btn-primary w-full justify-center text-sm"
             onClick={onClose}

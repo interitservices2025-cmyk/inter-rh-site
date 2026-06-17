@@ -1,8 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Users, TrendingUp, BarChart3, GraduationCap, Globe } from "lucide-react";
 import { Service } from "@/lib/types";
 import { cn } from "@/lib/utils";
+
+const serviceIcons = {
+  Users,
+  TrendingUp,
+  BarChart3,
+  GraduationCap,
+  Globe,
+};
 
 interface ServiceCardProps {
   service: Service;
@@ -15,9 +23,11 @@ export default function ServiceCard({
   variant = "image",
   className,
 }: ServiceCardProps) {
+  const IconComponent = serviceIcons[service.icon as keyof typeof serviceIcons] || Users;
+
   if (variant === "compact") {
     return (
-      <Link
+      <Link prefetch={false}
         href={`/services/${service.slug}`}
         className={cn(
           "card-bordered group flex items-start gap-4 p-5 hover:border-primary-300 hover:-translate-y-1",
@@ -26,7 +36,7 @@ export default function ServiceCard({
         )}
       >
         <div className="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center shrink-0 group-hover:bg-primary-100 transition-colors">
-          <div className="w-5 h-5 text-primary-500" />
+          <IconComponent className="w-5 h-5 text-primary-500" />
         </div>
         <div>
           <h3 className="font-semibold text-navy-500 text-sm group-hover:text-primary-500 transition-colors">
@@ -69,7 +79,7 @@ export default function ServiceCard({
         <p className="text-gray-500 text-sm leading-relaxed mb-4">
           {service.shortDescription}
         </p>
-        <Link
+        <Link prefetch={false}
           href={`/services/${service.slug}`}
           className="inline-flex items-center gap-2 text-primary-500 font-semibold text-sm hover:gap-3 transition-all duration-200 group-hover:gap-3"
           aria-label={`Plus de détails sur ${service.title}`}

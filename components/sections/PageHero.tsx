@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 interface Breadcrumb {
   label: string;
@@ -58,76 +59,78 @@ export default function PageHero({
       />
 
       <div className={cn("container-xl relative z-10", sizes[size])}>
-        {/* Breadcrumbs */}
-        {breadcrumbs && breadcrumbs.length > 0 && (
-          <nav
-            className="flex flex-wrap items-center gap-2 text-sm text-blue-200/90 mb-8"
-            aria-label="Fil d'Ariane"
-          >
-            <Link href="/" className="text-blue-200 hover:text-white transition-colors font-medium">
-              Accueil
-            </Link>
-            {breadcrumbs.map((crumb, i) => (
-              <span key={i} className="flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-blue-300/60" />
-                {crumb.href ? (
-                  <Link
-                    href={crumb.href}
-                    className="text-blue-200 hover:text-white transition-colors font-medium"
-                  >
-                    {crumb.label}
-                  </Link>
-                ) : (
-                  <span className="text-white font-semibold">{crumb.label}</span>
-                )}
-              </span>
-            ))}
-          </nav>
-        )}
-
-        {/* Overline */}
-        {overline && (
-          <p className="text-primary-400 font-bold text-xs tracking-[0.2em] uppercase mb-4">
-            {overline}
-          </p>
-        )}
-
-        {/* Title */}
-        <h1
-          id="page-hero-title"
-          className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6 max-w-3xl"
-        >
-          {title}
-          {titleHighlight && (
-            <>
-              {" "}
-              <span className="text-primary-400">{titleHighlight}</span>
-            </>
+        <AnimatedSection animation="slide-up" duration={0.6}>
+          {/* Breadcrumbs */}
+          {breadcrumbs && breadcrumbs.length > 0 && (
+            <nav
+              className="flex flex-wrap items-center gap-2 text-sm text-blue-200/90 mb-8"
+              aria-label="Fil d'Ariane"
+            >
+              <Link prefetch={false} href="/" className="text-blue-200 hover:text-white transition-colors font-medium">
+                Accueil
+              </Link>
+              {breadcrumbs.map((crumb, i) => (
+                <span key={i} className="flex items-center gap-2">
+                  <ChevronRight className="w-4 h-4 text-blue-300/60" />
+                  {crumb.href ? (
+                    <Link prefetch={false}
+                      href={crumb.href}
+                      className="text-blue-200 hover:text-white transition-colors font-medium"
+                    >
+                      {crumb.label}
+                    </Link>
+                  ) : (
+                    <span className="text-white font-semibold">{crumb.label}</span>
+                  )}
+                </span>
+              ))}
+            </nav>
           )}
-        </h1>
 
-        {/* Subtitle */}
-        {subtitle && (
-          <p className="text-blue-100 text-base sm:text-lg max-w-2xl mb-8 leading-relaxed font-normal">
-            {subtitle}
-          </p>
-        )}
+          {/* Overline */}
+          {overline && (
+            <p className="text-primary-400 font-bold text-xs tracking-[0.2em] uppercase mb-4">
+              {overline}
+            </p>
+          )}
 
-        {/* CTAs */}
-        {(cta || ctaSecondary) && (
-          <div className="flex flex-wrap gap-4">
-            {cta && (
-              <Link href={cta.href} className="btn-primary">
-                {cta.label}
-              </Link>
+          {/* Title */}
+          <h1
+            id="page-hero-title"
+            className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-6 max-w-3xl"
+          >
+            {title}
+            {titleHighlight && (
+              <>
+                {" "}
+                <span className="text-primary-400">{titleHighlight}</span>
+              </>
             )}
-            {ctaSecondary && (
-              <Link href={ctaSecondary.href} className="btn-outline">
-                {ctaSecondary.label}
-              </Link>
-            )}
-          </div>
-        )}
+          </h1>
+
+          {/* Subtitle */}
+          {subtitle && (
+            <p className="text-blue-100 text-base sm:text-lg max-w-2xl mb-8 leading-relaxed font-normal">
+              {subtitle}
+            </p>
+          )}
+
+          {/* CTAs */}
+          {(cta || ctaSecondary) && (
+            <div className="flex flex-wrap gap-4">
+              {cta && (
+                <Link prefetch={false} href={cta.href} className="btn-primary">
+                  {cta.label}
+                </Link>
+              )}
+              {ctaSecondary && (
+                <Link prefetch={false} href={ctaSecondary.href} className="btn-outline">
+                  {ctaSecondary.label}
+                </Link>
+              )}
+            </div>
+          )}
+        </AnimatedSection>
       </div>
     </section>
   );

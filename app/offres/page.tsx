@@ -2,40 +2,34 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   FileText,
   Briefcase,
-  Layers,
-  GraduationCap,
-  Globe,
-  Settings2,
+  CheckCircle,
 } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";
 import OfferCard from "@/components/ui/OfferCard";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { jobOffers } from "@/lib/data/offers";
 
-const opportunityTypes = [
-  {
-    icon: Briefcase,
-    title: "Recrutement Professionnel",
-    desc: "Opportunités en CDI, CDD et contrats cadres au sein de grandes entreprises et PME.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Stages de perfectionnement",
-    desc: "Programmes d'immersion professionnelle pour jeunes diplômés et profils en reconversion.",
-  },
-  {
-    icon: Globe,
-    title: "Mobilité Internationale",
-    desc: "Opportunités de carrières et programmes d'immigration professionnelle vers le Canada.",
-  },
-  {
-    icon: Layers,
-    title: "Projets RH Financés",
-    desc: "Missions d'assistance technique et consultance dans le cadre de projets d'ONG et bailleurs.",
-  },
+const b2bSteps = [
+  "Rédaction et structuration de l'appel",
+  "Diffusion ciblée (plateformes, réseaux, base de données)",
+  "Réception et analyse des dossiers",
+  "Présélection des candidats",
+  "Organisation des entretiens et évaluations",
+  "Production de rapports de sélection",
+];
+
+const callForCandidates = [
+  "Recrutement de profils professionnels",
+  "Programmes de formation et renforcement de capacités",
+  "Stages professionnels et académiques",
+  "Programmes d'immigration professionnelle",
+  "Missions locales et internationales",
+  "Projets financés et partenariats institutionnels",
 ];
 
 export default function OffresPage() {
@@ -52,62 +46,92 @@ export default function OffresPage() {
       <PageHero
         overline="OPPORTUNITÉS"
         title="Offres &"
-        titleHighlight="Opportunités"
-        subtitle="Consultez nos offres d'emploi disponibles et postulez directement en ligne. CDI, CDD, stages et missions freelance."
-        breadcrumbs={[{ label: "Offres & Opportunités" }]}
+        titleHighlight="Candidatures"
+        subtitle="INTER-RH accompagne entreprises, institutions, ONG et particuliers dans la publication, la gestion et la sélection d'appels au Cameroun et à l'international."
+        breadcrumbs={[{ label: "Offres & Candidatures" }]}
         cta={{ label: "Déposer ma candidature", href: "/candidature" }}
       />
 
-      {/* ===== TYPES D'OPPORTUNITÉS ===== */}
-      <section className="section-white" aria-labelledby="types-title">
+      {/* ===== B2B : GESTION DES APPELS D'OFFRES ===== */}
+      <section className="section-white" aria-labelledby="b2b-offers-title">
         <div className="container-xl">
-          <div className="text-center mb-12">
-            <p className="section-overline">DOMAINES COUVERTS</p>
-            <h2 id="types-title" className="section-title">
-              Types d'opportunités proposées
-            </h2>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection animation="slide-left">
+              <p className="section-overline">Notre accompagnement</p>
+              <h2 id="b2b-offers-title" className="text-2xl md:text-3xl font-extrabold text-navy-500 mb-6">
+                Gestion complète des appels d'offres
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                INTER-RH prend en charge l'ensemble du processus, de la rédaction à la sélection finale, 
+                pour vous garantir un processus structuré, transparent et efficace.
+              </p>
+              
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                {b2bSteps.map((step) => (
+                  <li key={step} className="flex items-start gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-primary-500 shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-xs font-medium">{step}</span>
+                  </li>
+                ))}
+              </ul>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {opportunityTypes.map((type) => (
-              <div key={type.title} className="card-bordered p-6 hover:border-primary-400 transition-colors bg-white">
-                <div className="w-12 h-12 rounded-xl bg-navy-50 flex items-center justify-center mb-4">
-                  <type.icon className="w-6 h-6 text-navy-500" />
-                </div>
-                <h3 className="font-bold text-navy-500 text-sm mb-2">{type.title}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{type.desc}</p>
+              <div className="bg-primary-50 text-primary-950 p-4 rounded-2xl border border-primary-100 text-xs font-semibold mb-6">
+                Résultat : gain de temps, réduction des risques et décisions éclairées.
               </div>
-            ))}
+
+              <Link prefetch={false} href="/contact?type=b2b-offres" className="btn-primary">
+                Prendre contact
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </AnimatedSection>
+
+            <AnimatedSection animation="slide-right" delay={0.2} className="relative h-[360px] rounded-3xl overflow-hidden shadow-xl bg-gray-100">
+              <Image
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop&q=80"
+                alt="Gestion complète des appels d'offres par INTER-RH"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* ===== GESTION DES APPELS D'OFFRES (B2B) ===== */}
-      <section className="section-light" aria-labelledby="b2b-offers-title">
+      {/* ===== APPELS A CANDIDATURE ===== */}
+      <section className="section-light" aria-labelledby="candidatures-heading">
         <div className="container-xl">
-          <div className="card bg-white p-8 md:p-12 shadow-md border border-gray-100 relative overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-8">
-                <span className="inline-flex items-center gap-1.5 bg-primary-50 text-primary-500 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-                  <Settings2 className="w-3.5 h-3.5" />
-                  Services aux Entreprises, ONG & Institutions
-                </span>
-                <h2 id="b2b-offers-title" className="text-2xl md:text-3xl font-extrabold text-navy-500 mb-4">
-                  Gestion des Appels à Candidature
-                </h2>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                  Destiné aux entreprises, institutions publiques et organisations non gouvernementales (ONG). 
-                  Nous prenons en charge l'intégralité du processus de gestion de vos appels à candidature : 
-                  de la structuration des critères d'éligibilité à la sélection finale et la rédaction des rapports de recrutement.
-                </p>
-              </div>
-              <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                <Link href="/contact?type=b2b-offres" className="btn-primary">
-                  Demander une consultation
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection animation="slide-left" className="relative h-[340px] rounded-3xl overflow-hidden shadow-xl bg-gray-100 lg:order-2">
+              <Image
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=80"
+                alt="Opportunités gérées par INTER-RH"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </AnimatedSection>
+
+            <AnimatedSection animation="slide-right" className="lg:order-1">
+              <p className="section-overline">Appels à candidature</p>
+              <h2 id="candidatures-heading" className="text-2xl md:text-3xl font-extrabold text-navy-500 mb-4">
+                Des opportunités structurées et fiables
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Nous publions et gérons régulièrement des appels à candidature pour :
+              </p>
+
+              <ul className="space-y-3.5 mb-6">
+                {callForCandidates.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-primary-100 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-2 h-2 rounded-full bg-primary-500" />
+                    </div>
+                    <span className="text-gray-700 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -115,13 +139,14 @@ export default function OffresPage() {
       {/* ===== OFFERS LIST ===== */}
       <section className="section-white" aria-labelledby="offers-title">
         <div className="container-xl">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-10">
+          <AnimatedSection animation="fade-in" className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-10">
             <div>
-              <h2 id="offers-title" className="text-2xl font-bold text-navy-500">
-                Offres d'emploi en cours
+              <p className="section-overline">Offres disponibles</p>
+              <h2 id="offers-title" className="text-2xl md:text-3xl font-bold text-navy-500">
+                Découvrez nos opportunités
               </h2>
               <p className="text-gray-500 text-sm mt-1">
-                {filteredOffers.length} offre{filteredOffers.length > 1 ? "s" : ""} disponible{filteredOffers.length > 1 ? "s" : ""}
+                Offres d'emploi de PME, grandes entreprises, ONG et institutions partenaires.
               </p>
             </div>
 
@@ -131,7 +156,7 @@ export default function OffresPage() {
                 <button
                   key={type}
                   onClick={() => setActiveFilter(type)}
-                  className={`text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 ${
+                  className={`text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 cursor-pointer ${
                     activeFilter === type
                       ? "bg-primary-500 text-white shadow-md shadow-primary-200"
                       : "bg-gray-100 text-gray-600 hover:bg-primary-50 hover:text-primary-600"
@@ -141,16 +166,18 @@ export default function OffresPage() {
                 </button>
               ))}
             </div>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredOffers.map((offer) => (
-              <OfferCard key={offer.id} offer={offer} />
+            {filteredOffers.map((offer, idx) => (
+              <AnimatedSection key={offer.id} animation="slide-up" delay={idx * 0.08}>
+                <OfferCard offer={offer} />
+              </AnimatedSection>
             ))}
           </div>
 
           {filteredOffers.length === 0 && (
-            <div className="text-center py-20 card-bordered p-8">
+            <AnimatedSection animation="fade-in" className="text-center py-20 card-bordered p-8 bg-white">
               <Briefcase className="w-16 h-16 text-gray-200 mx-auto mb-4" />
               <p className="text-gray-400 text-lg">
                 Aucune offre disponible pour cette catégorie.
@@ -158,7 +185,7 @@ export default function OffresPage() {
               <p className="text-gray-400 text-sm mt-2">
                 Déposez votre candidature spontanée et nous vous recontacterons dès qu'une offre correspondra à votre profil.
               </p>
-            </div>
+            </AnimatedSection>
           )}
         </div>
       </section>
@@ -166,7 +193,10 @@ export default function OffresPage() {
       {/* ===== CANDIDATURE SPONTANÉE ===== */}
       <section className="section-light">
         <div className="container-xl">
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-card text-center max-w-2xl mx-auto border border-gray-50">
+          <AnimatedSection
+            animation="scale-in"
+            className="bg-white rounded-3xl p-8 md:p-12 shadow-card text-center max-w-2xl mx-auto border border-gray-50"
+          >
             <div className="w-16 h-16 rounded-2xl bg-primary-50 flex items-center justify-center mx-auto mb-6">
               <FileText className="w-8 h-8 text-primary-500" />
             </div>
@@ -177,11 +207,11 @@ export default function OffresPage() {
               Déposez votre candidature spontanée. Notre équipe analysera votre profil
               et vous contactera dès qu'une opportunité correspondante sera disponible.
             </p>
-            <Link href="/candidature" className="btn-primary">
+            <Link prefetch={false} href="/candidature" className="btn-primary">
               Déposer ma candidature
               <ArrowRight className="w-4 h-4" />
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </>

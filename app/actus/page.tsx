@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";
 import NewsCard from "@/components/ui/NewsCard";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 import { newsArticles } from "@/lib/data/news";
 
 export const metadata: Metadata = {
@@ -29,20 +31,22 @@ export default function ActusPage() {
 
       <section className="section-white" aria-labelledby="articles-title">
         <div className="container-xl">
-          <div className="text-center mb-12">
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
             <h2 id="articles-title" className="section-title">
               Tous nos articles
             </h2>
-          </div>
+          </AnimatedSection>
 
           {/* Featured article */}
-          <div className="mb-12">
+          <AnimatedSection animation="slide-up" className="mb-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 card overflow-hidden hover:-translate-y-1 transition-all duration-300">
-              <div className="relative h-72 lg:h-auto">
-                <img
+              <div className="relative h-72 lg:h-auto bg-gray-100 min-h-[300px]">
+                <Image
                   src={newsArticles[0].imageUrl || ""}
                   alt={newsArticles[0].title}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
                 />
                 <div className="absolute top-4 left-4">
                   <span className="bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
@@ -64,7 +68,7 @@ export default function ActusPage() {
                 <p className="text-gray-600 leading-relaxed mb-6">
                   {newsArticles[0].excerpt}
                 </p>
-                <Link
+                <Link prefetch={false}
                   href={`/actus/${newsArticles[0].slug}`}
                   className="btn-primary self-start"
                 >
@@ -73,12 +77,14 @@ export default function ActusPage() {
                 </Link>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Articles grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {newsArticles.slice(1).map((article) => (
-              <NewsCard key={article.id} article={article} />
+            {newsArticles.slice(1).map((article, idx) => (
+              <AnimatedSection key={article.id} animation="slide-up" delay={idx * 0.08}>
+                <NewsCard article={article} />
+              </AnimatedSection>
             ))}
           </div>
         </div>

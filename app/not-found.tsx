@@ -19,11 +19,11 @@ export default function NotFound() {
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <Link href="/" className="btn-primary">
+          <Link prefetch={false} href="/" className="btn-primary">
             <Home className="w-4 h-4" />
             Retour à l&apos;accueil
           </Link>
-          <Link href="/contact" className="btn-outline-dark">
+          <Link prefetch={false} href="/contact" className="btn-outline-dark">
             Nous contacter
           </Link>
         </div>

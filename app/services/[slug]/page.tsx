@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { services, getServiceBySlug } from "@/lib/data/services";
 import PageHero from "@/components/sections/PageHero";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -60,7 +61,7 @@ export default async function ServicePage({ params }: Props) {
         <div className="container-xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Content */}
-            <div>
+            <AnimatedSection animation="slide-left">
               <h2 className="text-2xl md:text-3xl font-bold text-navy-500 mb-6">
                 À propos de ce service
               </h2>
@@ -80,14 +81,14 @@ export default async function ServicePage({ params }: Props) {
                 ))}
               </ul>
 
-              <Link href="/contact" className="btn-primary">
+              <Link prefetch={false} href="/contact" className="btn-primary">
                 Demander un devis
                 <ArrowRight className="w-4 h-4" />
               </Link>
-            </div>
+            </AnimatedSection>
 
             {/* Image */}
-            <div className="sticky top-24">
+            <AnimatedSection animation="slide-right" delay={0.2} className="sticky top-24">
               <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-xl">
                 <Image
                   src={service.imageUrl}
@@ -106,7 +107,7 @@ export default async function ServicePage({ params }: Props) {
                 <p className="text-gray-500 text-sm mb-4">
                   Contactez-nous pour une consultation gratuite et personnalisée.
                 </p>
-                <Link href="/contact" className="btn-primary w-full justify-center text-sm">
+                <Link prefetch={false} href="/contact" className="btn-primary w-full justify-center text-sm">
                   Prendre contact
                 </Link>
                 <a
@@ -116,7 +117,7 @@ export default async function ServicePage({ params }: Props) {
                   +237 679 033 398
                 </a>
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -124,27 +125,34 @@ export default async function ServicePage({ params }: Props) {
       {/* ===== OTHER SERVICES ===== */}
       <section className="section-light">
         <div className="container-xl">
-          <h2 className="text-2xl font-bold text-navy-500 mb-8">
-            Nos autres services
-          </h2>
+          <AnimatedSection animation="fade-in">
+            <h2 className="text-2xl font-bold text-navy-500 mb-8">
+              Nos autres services
+            </h2>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {otherServices.map((svc) => (
-              <Link
+            {otherServices.map((svc, idx) => (
+              <AnimatedSection
                 key={svc.id}
-                href={`/services/${svc.slug}`}
-                className="card p-6 group hover:-translate-y-1 transition-all duration-300"
+                animation="slide-up"
+                delay={idx * 0.08}
               >
-                <h3 className="font-bold text-navy-500 mb-2 group-hover:text-primary-500 transition-colors text-sm">
-                  {svc.title}
-                </h3>
-                <p className="text-gray-500 text-xs leading-relaxed line-clamp-2">
-                  {svc.shortDescription}
-                </p>
-                <span className="inline-flex items-center gap-1 text-primary-500 text-xs font-semibold mt-3 group-hover:gap-2 transition-all">
-                  En savoir plus <ArrowRight className="w-3 h-3" />
-                </span>
-              </Link>
+                <Link prefetch={false}
+                  href={`/services/${svc.slug}`}
+                  className="card p-6 group hover:-translate-y-1 transition-all duration-300 block h-full"
+                >
+                  <h3 className="font-bold text-navy-500 mb-2 group-hover:text-primary-500 transition-colors text-sm">
+                    {svc.title}
+                  </h3>
+                  <p className="text-gray-500 text-xs leading-relaxed line-clamp-2">
+                    {svc.shortDescription}
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-primary-500 text-xs font-semibold mt-3 group-hover:gap-2 transition-all">
+                    En savoir plus <ArrowRight className="w-3 h-3" />
+                  </span>
+                </Link>
+              </AnimatedSection>
             ))}
           </div>
         </div>

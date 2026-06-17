@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { ChevronDown, Phone, Menu, X } from "lucide-react";
+import { ChevronDown, Phone, Menu } from "lucide-react";
 import MobileMenu from "./MobileMenu";
 import { cn } from "@/lib/utils";
 
@@ -74,7 +74,7 @@ export default function Header() {
             aria-label="Navigation principale"
           >
             {/* Logo */}
-            <Link
+            <Link prefetch={false}
               href="/"
               className="flex items-center shrink-0"
               aria-label="INTER-RH — Accueil"
@@ -86,7 +86,6 @@ export default function Header() {
                   fill
                   sizes="(max-width: 768px) 150px, 200px"
                   className="object-contain"
-                  priority
                 />
               </div>
             </Link>
@@ -126,7 +125,7 @@ export default function Header() {
                           aria-labelledby="services-menu-button"
                         >
                           {serviceLinks.map((svc) => (
-                            <Link
+                            <Link prefetch={false}
                               key={svc.href}
                               href={svc.href}
                               role="menuitem"
@@ -144,7 +143,7 @@ export default function Header() {
                       )}
                     </div>
                   ) : (
-                    <Link
+                    <Link prefetch={false}
                       href={link.href}
                       className={cn(
                         "text-sm font-semibold tracking-wide transition-colors duration-200 py-2",
@@ -162,7 +161,7 @@ export default function Header() {
 
             {/* CTA Consultation */}
             <div className="hidden lg:flex items-center gap-4">
-              <Link
+              <Link prefetch={false}
                 href="/contact"
                 className="btn-primary text-sm"
                 aria-label="Prendre rendez-vous pour une consultation"

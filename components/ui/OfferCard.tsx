@@ -88,7 +88,7 @@ export default function OfferCard({ offer, className }: OfferCardProps) {
       )}
 
       {/* CTA */}
-      <Link
+      <Link prefetch={false}
         href={`/candidature?poste=${encodeURIComponent(offer.title)}`}
         className="btn-primary text-xs py-2.5 px-5 w-full justify-center"
         aria-label={`Postuler pour ${offer.title}`}

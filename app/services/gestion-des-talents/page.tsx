@@ -13,8 +13,9 @@ import {
   UserCheck,
 } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Gestion des talents & recrutement | INTER-RH",
   description:
     "Recrutement ciblé, sélection rigoureuse et intégration réussie de vos collaborateurs. Découvrez notre service complet.",
@@ -96,7 +97,7 @@ export default function GestionDesTalentsPage() {
       <section className="section-white">
         <div className="container-xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
+            <AnimatedSection animation="slide-left">
               <h2 className="text-2xl md:text-3xl font-bold text-navy-500 mb-6">
                 À propos de ce service
               </h2>
@@ -132,13 +133,13 @@ export default function GestionDesTalentsPage() {
                 </p>
               </div>
 
-              <Link href="/contact" className="btn-primary">
+              <Link prefetch={false} href="/contact" className="btn-primary">
                 Demander un devis
                 <ArrowRight className="w-4 h-4" />
               </Link>
-            </div>
+            </AnimatedSection>
 
-            <div className="sticky top-24">
+            <AnimatedSection animation="slide-right" delay={0.2} className="sticky top-24">
               <div className="relative h-[340px] rounded-3xl overflow-hidden shadow-xl">
                 <Image
                   src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=80"
@@ -148,7 +149,7 @@ export default function GestionDesTalentsPage() {
                   className="object-cover"
                 />
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -156,19 +157,24 @@ export default function GestionDesTalentsPage() {
       {/* ===== PORTAILS ACCÈS SPECIFIQUES ===== */}
       <section className="section-light" aria-labelledby="portals-title">
         <div className="container-xl">
-          <div className="text-center mb-12">
-            <p className="section-overline">ACCÈS DIRETCS</p>
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
+            <p className="section-overline">ACCÈS DIRECTS</p>
             <h2 id="portals-title" className="section-title">
               Découvrez nos portails dédiés
             </h2>
             <p className="section-subtitle">
               Des espaces spécialisés pour répondre précisément aux besoins des recruteurs et des candidats.
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {portalCards.map((portal) => (
-              <div key={portal.title} className="card bg-white p-8 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+            {portalCards.map((portal, idx) => (
+              <AnimatedSection
+                key={portal.title}
+                animation="slide-up"
+                delay={idx * 0.1}
+                className="card bg-white p-8 flex flex-col justify-between hover:shadow-lg transition-all duration-300"
+              >
                 <div>
                   <div className="w-12 h-12 rounded-xl bg-navy-50 flex items-center justify-center mb-6">
                     <portal.icon className="w-6 h-6 text-navy-500" />
@@ -176,11 +182,11 @@ export default function GestionDesTalentsPage() {
                   <h3 className="font-extrabold text-navy-500 text-base mb-4">{portal.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6">{portal.description}</p>
                 </div>
-                <Link href={portal.link} className="inline-flex items-center gap-1 text-primary-500 text-xs font-bold hover:gap-2 transition-all">
+                <Link prefetch={false} href={portal.link} className="inline-flex items-center gap-1 text-primary-500 text-xs font-bold hover:gap-2 transition-all">
                   {portal.linkText}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
