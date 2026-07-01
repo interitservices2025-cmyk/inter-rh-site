@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import Illustration from "@/components/ui/Illustration";
 import { ArrowLeft, Calendar } from "lucide-react";
 import { newsArticles, getArticleBySlug } from "@/lib/data/news";
 import { formatDate } from "@/lib/utils";

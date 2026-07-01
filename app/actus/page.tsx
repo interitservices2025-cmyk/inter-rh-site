@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import Illustration from "@/components/ui/Illustration";
 import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";
 import NewsCard from "@/components/ui/NewsCard";
@@ -41,13 +42,13 @@ export default function ActusPage() {
           <AnimatedSection animation="slide-up" className="mb-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 card overflow-hidden hover:-translate-y-1 transition-all duration-300">
               <div className="relative h-72 lg:h-auto bg-gray-100 min-h-[300px]">
-                <Image
-                  src={newsArticles[0].imageUrl || ""}
-                  alt={newsArticles[0].title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
+                 <Image
+                   src={newsArticles[0].imageUrl || ""}
+                   alt={newsArticles[0].title}
+                   fill
+                   sizes="(max-width: 1024px) 100vw, 50vw"
+                   className="object-cover"
+                 />
                 <div className="absolute top-4 left-4">
                   <span className="bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
                     {newsArticles[0].category}

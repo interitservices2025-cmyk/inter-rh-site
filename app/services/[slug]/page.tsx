@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import Illustration from "@/components/ui/Illustration";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { services, getServiceBySlug } from "@/lib/data/services";
 import PageHero from "@/components/sections/PageHero";
@@ -90,12 +91,14 @@ export default async function ServicePage({ params }: Props) {
             {/* Image */}
             <AnimatedSection animation="slide-right" delay={0.2} className="sticky top-24">
               <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-xl">
-                <Image
-                  src={service.imageUrl}
-                  alt={service.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                <Illustration
+                  name={
+                    service.slug === "gestion-des-talents" ? "service_recrutement" :
+                    service.slug === "conseil-strategique" ? "service_strategy" :
+                    service.slug === "gestion-de-projets" ? "service_projects" :
+                    service.slug === "formation-coaching" ? "service_coaching" :
+                    service.slug === "immigration" ? "service_immigration" : "service_recrutement"
+                  }
                 />
               </div>
 

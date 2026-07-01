@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Illustration from "@/components/ui/Illustration";
 import { ArrowRight, Heart, Award, Users } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -71,12 +72,8 @@ export default function NotreAgencePage() {
 
             <AnimatedSection animation="slide-right" delay={0.2} className="relative">
               <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=80"
-                  alt="L'équipe INTER-RH au travail"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                <Illustration
+                  name="mission_human"
                 />
               </div>
             </AnimatedSection>

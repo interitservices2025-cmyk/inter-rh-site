@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import Illustration from "@/components/ui/Illustration";
 import {
   ArrowRight,
   CheckCircle,
@@ -51,11 +52,9 @@ export default function HomePage() {
       >
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&auto=format&fit=crop&q=80"
-            alt="Bannière cabinet de conseil RH"
-            fill
-            className="object-cover opacity-30"
+          <Illustration
+            name="hero_home"
+            className="opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#1b2a4a]/90 via-[#243460]/85 to-[#2d1b4e]/80" />
         </div>
@@ -175,12 +174,8 @@ export default function HomePage() {
             {/* Right Column - Team Image */}
             <AnimatedSection animation="slide-right" delay={0.2} className="relative">
               <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80"
-                  alt="Équipe INTER-RH"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                <Illustration
+                  name="team_about"
                 />
               </div>
             </AnimatedSection>
@@ -233,12 +228,8 @@ export default function HomePage() {
             {/* Image */}
             <AnimatedSection animation="slide-left" className="relative">
               <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&auto=format&fit=crop&q=80"
-                  alt="Équipe INTER-RH en session de travail"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                <Illustration
+                  name="why_choose_us"
                 />
               </div>
             </AnimatedSection>

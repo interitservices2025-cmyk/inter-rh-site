@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import Illustration from "@/components/ui/Illustration";
 import {
   ArrowRight,
   CheckCircle,
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     title: "Gestion des talents & recrutement | INTER-RH",
     description: "Recrutement ciblé, sélection rigoureuse et intégration de talents.",
     images: [
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=80",
+      "/images/service_recrutement.jpg",
     ],
   },
 };
@@ -141,12 +142,8 @@ export default function GestionDesTalentsPage() {
 
             <AnimatedSection animation="slide-right" delay={0.2} className="sticky top-24">
               <div className="relative h-[340px] rounded-3xl overflow-hidden shadow-xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=80"
-                  alt="Gestion des talents et recrutement professionnel"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                <Illustration
+                  name="service_recrutement"
                 />
               </div>
             </AnimatedSection>

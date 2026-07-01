@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Illustration from "@/components/ui/Illustration";
 import {
   ArrowRight,
   FileText,
@@ -129,13 +130,9 @@ export default function CandidaturePage() {
               </p>
             </AnimatedSection>
             <AnimatedSection animation="slide-right" delay={0.2} className="lg:col-span-5 relative h-[300px] rounded-3xl overflow-hidden shadow-lg">
-              <Image
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80"
-                alt="Accompagnement de carrière INTER-RH"
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
-              />
+                <Illustration
+                  name="candidats_coaching"
+                />
             </AnimatedSection>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import Illustration from "@/components/ui/Illustration";
 import {
   ArrowRight,
   CheckCircle,
@@ -8,7 +9,6 @@ import {
   Clock,
   Users,
   Trophy,
-  TrendingUp,
   Percent,
 } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";
@@ -220,81 +220,14 @@ export default function EmployeursPage() {
             </AnimatedSection>
 
             <AnimatedSection animation="slide-right" delay={0.2} className="relative h-[380px] rounded-3xl overflow-hidden shadow-xl">
-              <Image
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80"
-                alt="Intégration et onboarding des nouveaux collaborateurs"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+              <Illustration
+                name="employeurs_onboarding"
               />
             </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* ===== CASE STUDY ===== */}
-      <section className="section-light" aria-labelledby="casestudy-title">
-        <div className="container-xl">
-          <AnimatedSection animation="fade-in" className="text-center mb-12">
-            <p className="section-overline">RÉSULTATS PROUVÉS</p>
-            <h2 id="casestudy-title" className="section-title">Étude de cas : PME en forte croissance</h2>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            <AnimatedSection animation="slide-left" className="lg:col-span-5 relative min-h-[300px] rounded-3xl overflow-hidden shadow-lg">
-              <Image
-                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&auto=format&fit=crop&q=80"
-                alt="Équipe en réunion de projet"
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
-              />
-            </AnimatedSection>
-            
-            <AnimatedSection animation="slide-right" delay={0.2} className="lg:col-span-7 card p-8 flex flex-col justify-between">
-              <div>
-                <span className="inline-flex items-center gap-1.5 bg-primary-50 text-primary-500 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-                  <TrendingUp className="w-3.5 h-3.5" />
-                  Secteur : Fintech & Services
-                </span>
-                <h3 className="text-xl font-bold text-navy-500 mb-4">
-                  Recrutement de 5 collaborateurs clés en moins de 45 jours
-                </h3>
-                <div className="space-y-4 text-sm text-gray-600 leading-relaxed mb-6">
-                  <p>
-                    <strong>Le défi :</strong> Une PME financière en pleine expansion devait recruter en urgence
-                    deux Développeurs Full-Stack, un Chef de projet IT et deux Commerciaux B2B séniors, dans un contexte
-                    de forte pénurie de profils qualifiés.
-                  </p>
-                  <p>
-                    <strong>La solution :</strong> Sourcing actif multicanal via notre base de données qualifiée et
-                    LinkedIn, couplé à une série de tests d'aptitudes techniques et d'évaluation de la personnalité.
-                  </p>
-                  <p>
-                    <strong>Les résultats :</strong> Les 5 postes ont été pourvus en seulement 30 jours calendaires.
-                    Six mois après leur intégration, l'entreprise enregistre 100% de rétention sur cette cohorte.
-                  </p>
-                </div>
-              </div>
-
-              <div className="border-t border-gray-100 pt-6 grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <p className="text-2xl font-black text-primary-500">30j</p>
-                  <p className="text-gray-500 text-xxs uppercase tracking-wider mt-1">Délai moyen</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-black text-primary-500">100%</p>
-                  <p className="text-gray-500 text-xxs uppercase tracking-wider mt-1">Rétention</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-black text-primary-500">5/5</p>
-                  <p className="text-gray-500 text-xxs uppercase tracking-wider mt-1">Postes pourvus</p>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
 
       {/* ===== EMPLOYER FORM CTA ===== */}
       <section className="bg-navy-500 py-16">

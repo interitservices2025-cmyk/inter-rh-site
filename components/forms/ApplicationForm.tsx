@@ -19,27 +19,71 @@ const schema = z.object({
     .string()
     .min(50, "Votre lettre de motivation doit contenir au moins 50 caractères"),
   linkedinUrl: z.string().url("URL LinkedIn invalide").optional().or(z.literal("")),
+  cv: z
+    .any()
+    .refine((files) => files && files.length > 0, "Votre CV (document) est requis")
+    .refine((files) => !files || !files[0] || files[0].size <= 5 * 1024 * 1024, "La taille maximale est de 5 Mo")
+    .refine((files) => !files || !files[0] || ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"].includes(files[0].type) || files[0].name.endsWith(".pdf") || files[0].name.endsWith(".doc") || files[0].name.endsWith(".docx"), "Seuls les fichiers PDF et Word sont acceptés"),
 });
 
 type FormData = z.infer<typeof schema>;
 
 export default function ApplicationForm() {
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors, isSubmitting },
     reset,
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
+  const cvFile = watch("cv");
+  const fileName = cvFile && cvFile[0] ? cvFile[0].name : null;
+
   const onSubmit = async (data: FormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log("Application data:", data);
-    setIsSuccess(true);
-    reset();
+    setSubmitError(null);
+    try {
+      const formPayload = new FormData();
+      formPayload.append("firstName", data.firstName);
+      formPayload.append("lastName", data.lastName);
+      formPayload.append("email", data.email);
+      formPayload.append("phone", data.phone);
+      formPayload.append("position", data.position);
+      formPayload.append("experience", data.experience);
+      formPayload.append("education", data.education);
+      formPayload.append("coverLetter", data.coverLetter);
+      if (data.linkedinUrl) {
+        formPayload.append("linkedinUrl", data.linkedinUrl);
+      }
+      
+      const cvFile = (data.cv as FileList)?.[0];
+      if (cvFile) {
+        formPayload.append("cv", cvFile);
+      }
+
+      const response = await fetch("/api/send-application", {
+        method: "POST",
+        body: formPayload,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Une erreur est survenue lors de l'envoi.");
+      }
+
+      setIsSuccess(true);
+      reset();
+    } catch (err) {
+      console.error(err);
+      const errorMessage = err instanceof Error ? err.message : "Une erreur réseau est survenue. Veuillez réessayer.";
+      setSubmitError(errorMessage);
+    }
   };
 
   if (isSuccess) {
@@ -226,17 +270,41 @@ export default function ApplicationForm() {
         )}
       </div>
 
-      {/* File upload note */}
-      <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
-        <Upload className="w-5 h-5 text-blue-500 shrink-0" />
-        <p className="text-blue-700 text-sm">
-          Pour joindre votre CV, envoyez-le par email à{" "}
-          <a href="mailto:contact@inter-rh.com" className="font-semibold hover:underline">
-            contact@inter-rh.com
-          </a>{" "}
-          avec le sujet &ldquo;Candidature — [Votre nom]&rdquo;
-        </p>
+      {/* File upload */}
+      <div>
+        <label htmlFor="app-cv" className="form-label">
+          Votre CV (PDF, Word — max. 5 Mo) <span className="text-primary-500">*</span>
+        </label>
+        <div className="relative border-2 border-dashed border-gray-200 rounded-xl p-6 hover:border-primary-500 transition-colors flex flex-col items-center justify-center bg-gray-50/50 cursor-pointer">
+          <input
+            id="app-cv"
+            type="file"
+            accept=".pdf,.doc,.docx"
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+            {...register("cv")}
+          />
+          <Upload className="w-8 h-8 text-gray-400 mb-2" />
+          <span className="text-sm font-semibold text-gray-600 text-center px-4">
+            {fileName ? (
+              <span className="text-primary-600 font-bold">{fileName}</span>
+            ) : (
+              "Déposer votre CV ici ou cliquer pour parcourir"
+            )}
+          </span>
+          <span className="text-xs text-gray-400 mt-1">
+            Formats acceptés : PDF, DOC, DOCX (Max 5 Mo)
+          </span>
+        </div>
+        {errors.cv && (
+          <p role="alert" className="form-error">{errors.cv.message as string}</p>
+        )}
       </div>
+
+      {submitError && (
+        <div className="p-4 bg-red-50 border border-red-100 rounded-xl text-red-700 text-sm" role="alert">
+          {submitError}
+        </div>
+      )}
 
       <Button
         type="submit"

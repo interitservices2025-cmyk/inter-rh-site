@@ -79,12 +79,12 @@ export default function Header() {
               className="flex items-center shrink-0"
               aria-label="INTER-RH — Accueil"
             >
-              <div className="relative w-44 h-12">
+              <div className="relative w-[180px] h-[49px] md:w-[220px] md:h-[60px] lg:w-[240px] lg:h-[66px]">
                 <Image
                   src="/logo.png"
                   alt="INTER-RH Logo"
                   fill
-                  sizes="(max-width: 768px) 150px, 200px"
+                  sizes="(max-width: 768px) 180px, (max-width: 1024px) 220px, 240px"
                   className="object-contain"
                 />
               </div>
@@ -194,7 +194,7 @@ export default function Header() {
       />
 
       {/* Spacer for fixed header */}
-      <div className="h-[72px]" aria-hidden="true" />
+      <div className="h-[73px] md:h-[84px] lg:h-[90px]" aria-hidden="true" />
     </>
   );
 }

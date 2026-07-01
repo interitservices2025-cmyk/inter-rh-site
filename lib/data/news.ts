@@ -26,7 +26,7 @@ Les organisations qui mettent en place des programmes de développement structur
 
 INTER-RH vous accompagne dans la mise en place de programmes de développement adaptés à vos besoins et à votre budget.`,
     imageUrl:
-      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&auto=format&fit=crop&q=80",
     category: "Actualités",
     publishedAt: "2026-01-21",
     author: "INTER-RH",
@@ -57,7 +57,7 @@ Les silos entre équipes et la communication insuffisante avec les parties prena
 
 Notre équipe de gestionnaires de projets certifiés vous accompagne de la planification jusqu'à la livraison, en garantissant la maîtrise des délais, des budgets et de la qualité.`,
     imageUrl:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&auto=format&fit=crop&q=80",
     category: "Actualités",
     publishedAt: "2026-01-21",
     author: "INTER-RH",
@@ -85,7 +85,7 @@ Le développement du leadership ne doit pas être réservé aux cadres dirigeant
 
 Le coaching individuel est l'un des outils les plus puissants pour accélérer le développement des leaders. INTER-RH propose des programmes de coaching certifiés adaptés à chaque niveau de leadership.`,
     imageUrl:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&auto=format&fit=crop&q=80",
     category: "Actualités",
     publishedAt: "2026-01-21",
     author: "INTER-RH",
@@ -110,7 +110,7 @@ Le Système de classement global (CRS) évalue les candidats sur plusieurs crit�
 
 Notre équipe d'experts en immigration vous aide à identifier les meilleures stratégies pour maximiser votre score CRS, notamment l'amélioration de vos scores IELTS/TEF, l'obtention d'une nomination provinciale (PNP), ou la validation de vos diplômes étrangers.`,
     imageUrl:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&auto=format&fit=crop&q=80",
     category: "Actualités",
     publishedAt: "2026-01-21",
     author: "INTER-RH",

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Illustration from "@/components/ui/Illustration";
 import {
   ArrowRight,
   FileText,
@@ -86,12 +87,8 @@ export default function OffresPage() {
             </AnimatedSection>
 
             <AnimatedSection animation="slide-right" delay={0.2} className="relative h-[360px] rounded-3xl overflow-hidden shadow-xl bg-gray-100">
-              <Image
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop&q=80"
-                alt="Gestion complète des appels d'offres par INTER-RH"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+              <Illustration
+                name="offres_tenders"
               />
             </AnimatedSection>
           </div>
@@ -103,12 +100,8 @@ export default function OffresPage() {
         <div className="container-xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection animation="slide-left" className="relative h-[340px] rounded-3xl overflow-hidden shadow-xl bg-gray-100 lg:order-2">
-              <Image
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=80"
-                alt="Opportunités gérées par INTER-RH"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+              <Illustration
+                name="offres_jobs"
               />
             </AnimatedSection>
 

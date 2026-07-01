@@ -21,7 +21,6 @@ export default function NewsCard({
         className
       )}
     >
-      {/* Image */}
       {article.imageUrl && (
         <div className="relative h-48 overflow-hidden bg-gray-100">
           <Image

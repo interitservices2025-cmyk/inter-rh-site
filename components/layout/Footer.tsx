@@ -55,13 +55,13 @@ export default function Footer() {
           <div className="lg:col-span-3">
             {/* Logo */}
             <Link prefetch={false} href="/" className="inline-block mb-6" aria-label="INTER-RH — Accueil">
-              <div className="bg-white rounded-2xl px-5 py-3 inline-block">
-                <div className="relative w-36 h-10">
+              <div className="bg-white rounded-xl p-1 inline-block">
+                <div className="relative w-[200px] h-[55px] md:w-[240px] md:h-[66px]">
                   <Image
                     src="/logo.png"
                     alt="INTER-RH Logo"
                     fill
-                    sizes="150px"
+                    sizes="(max-width: 768px) 200px, 240px"
                     className="object-contain"
                   />
                 </div>

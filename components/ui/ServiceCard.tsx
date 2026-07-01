@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Illustration from "./Illustration";
 import { ArrowRight, Users, TrendingUp, BarChart3, GraduationCap, Globe } from "lucide-react";
 import { Service } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -58,14 +58,17 @@ export default function ServiceCard({
       )}
     >
       {/* Image */}
-      {variant === "image" && service.imageUrl && (
+      {variant === "image" && (
         <div className="relative h-52 overflow-hidden">
-          <Image
-            src={service.imageUrl}
-            alt={service.title}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+          <Illustration
+            name={
+              service.slug === "gestion-des-talents" ? "service_recrutement" :
+              service.slug === "conseil-strategique" ? "service_strategy" :
+              service.slug === "gestion-de-projets" ? "service_projects" :
+              service.slug === "formation-coaching" ? "service_coaching" :
+              service.slug === "immigration" ? "service_immigration" : "service_recrutement"
+            }
+            className="group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy-500/40 to-transparent" />
         </div>

@@ -1,6 +1,5 @@
-import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Home, ArrowLeft } from "lucide-react";
+import { Home } from "lucide-react";
 
 export default function NotFound() {
   return (
