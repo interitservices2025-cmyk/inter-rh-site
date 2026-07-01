@@ -22,6 +22,7 @@ type FormData = z.infer<typeof schema>;
 
 export default function ContactForm() {
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -33,12 +34,29 @@ export default function ContactForm() {
   });
 
   const onSubmit = async (data: FormData) => {
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Contact form data:", data);
-    setIsSuccess(true);
-    reset();
-    setTimeout(() => setIsSuccess(false), 5000);
+    setSubmitError(null);
+    try {
+      const response = await fetch("/api/send-contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Une erreur est survenue lors de l'envoi.");
+      }
+
+      setIsSuccess(true);
+      reset();
+    } catch (err) {
+      console.error(err);
+      const errorMessage = err instanceof Error ? err.message : "Une erreur réseau est survenue. Veuillez réessayer.";
+      setSubmitError(errorMessage);
+    }
   };
 
   if (isSuccess) {
@@ -165,6 +183,12 @@ export default function ContactForm() {
           </p>
         )}
       </div>
+
+      {submitError && (
+        <div className="p-4 bg-red-50 border border-red-200 text-red-600 rounded-2xl text-sm font-medium">
+          {submitError}
+        </div>
+      )}
 
       <Button
         type="submit"
