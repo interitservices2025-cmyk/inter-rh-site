@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Illustration from "@/components/ui/Illustration";
 import { ArrowRight, Heart, Award, Users } from "lucide-react";
@@ -7,14 +6,14 @@ import PageHero from "@/components/sections/PageHero";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
-  title: "Notre Agence — Cabinet RH INTER-RH",
+  title: "Notre Agence — Cabinet INTER-RH",
   description:
-    "Découvrez INTER-RH, cabinet de conseil spécialisé en gestion des talents, conseil stratégique et immigration. Notre mission, nos valeurs, notre équipe à Yaoundé.",
+    "Découvrez INTER-RH (Inter Human Ressources), cabinet spécialisé en gestion des talents, gestion et pilotage de projets et accompagnement en immigration à Yaoundé.",
   alternates: { canonical: "/notre-agence" },
   openGraph: {
     title: "Notre Agence | INTER-RH",
     description:
-      "Découvrez notre cabinet et notre engagement pour l'excellence RH au Cameroun.",
+      "Découvrez notre cabinet et notre engagement auprès des entreprises et des particuliers au Cameroun.",
   },
 };
 
@@ -57,12 +56,10 @@ export default function NotreAgencePage() {
             <AnimatedSection animation="slide-left">
               <p className="section-overline">Notre mission</p>
               <h2 id="mission-title" className="section-title">
-                Placer l'humain au cœur de chaque décision
+                Placer l&apos;humain et la méthode au cœur de chaque projet
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                INTER-RH est un cabinet spécialisé en gestion des ressources humaines, conseil stratégique et immigration. 
-                Nous accompagnons les entreprises camerounaises et internationales ainsi que les particuliers dans la réalisation 
-                de leurs projets professionnels et personnels.
+                INTER-RH (Inter Human Ressources) est un cabinet spécialisé dans la gestion des talents et le recrutement, la gestion et le pilotage de projets multisectoriels ainsi que l&apos;accompagnement dans les démarches d&apos;immigration. Nous accompagnons les entreprises camerounaises et internationales ainsi que les particuliers dans la structuration et la réalisation de leurs projets professionnels et organisationnels.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 Notre conviction : derrière chaque organisation performante, il y a des femmes et des hommes engagés, 

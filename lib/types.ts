@@ -1,15 +1,31 @@
 // Types partagés du projet INTER-RH
 
+export interface ProjectStep {
+  number: number;
+  title: string;
+  description: string;
+}
+
+export interface ProjectSector {
+  title: string;
+  description: string;
+  icon: string;
+}
+
 export interface Service {
   id: string;
   slug: string;
   title: string;
   shortDescription: string;
   fullDescription: string;
+  secondaryDescription?: string;
   icon: string;
   imageUrl: string;
   features: string[];
   color?: string;
+  projectSectors?: ProjectSector[];
+  projectSteps?: ProjectStep[];
+  ctaLabel?: string;
 }
 
 export interface Testimonial {

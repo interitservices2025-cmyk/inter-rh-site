@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Illustration from "@/components/ui/Illustration";
 import {
   ArrowRight,
@@ -25,12 +24,12 @@ const b2bSteps = [
 ];
 
 const callForCandidates = [
-  "Recrutement de profils professionnels",
-  "Programmes de formation et renforcement de capacités",
+  "Recrutement de profils professionnels et spécialisés",
+  "Coordinateurs et intervenants de projets multisectoriels",
   "Stages professionnels et académiques",
   "Programmes d'immigration professionnelle",
   "Missions locales et internationales",
-  "Projets financés et partenariats institutionnels",
+  "Projets d'entreprise et partenariats institutionnels",
 ];
 
 export default function OffresPage() {

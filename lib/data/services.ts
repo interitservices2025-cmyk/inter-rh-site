@@ -1,4 +1,77 @@
-import { Service } from "@/lib/types";
+import { Service, ProjectSector, ProjectStep } from "@/lib/types";
+
+export const projectSectors: ProjectSector[] = [
+  {
+    title: "Projets de construction et d'infrastructures",
+    description:
+      "Planification, coordination des intervenants et suivi des jalons d'opérations.",
+    icon: "Building2",
+  },
+  {
+    title: "Projets organisationnels",
+    description:
+      "Structuration d'équipes et accompagnement des transformations internes.",
+    icon: "Network",
+  },
+  {
+    title: "Projets de développement d'entreprise",
+    description:
+      "Cadrage et pilotage de nouvelles activités et projets de croissance.",
+    icon: "TrendingUp",
+  },
+  {
+    title: "Projets technologiques et numériques",
+    description:
+      "Coordination fonctionnelle pour le déploiement d'outils et la digitalisation.",
+    icon: "Cpu",
+  },
+  {
+    title: "Projets RH et organisationnels",
+    description:
+      "Déploiement de politiques RH, structuration des compétences et intégration.",
+    icon: "Users",
+  },
+  {
+    title: "Projets de développement et d'expansion",
+    description:
+      "Planification d'implantations régionales ou internationales et mobilisation.",
+    icon: "Compass",
+  },
+  {
+    title: "Projets de transformation et d'amélioration des processus",
+    description:
+      "Optimisation des flux de travail et suivi de la performance opérationnelle.",
+    icon: "Settings",
+  },
+];
+
+export const projectLifecycleSteps: ProjectStep[] = [
+  {
+    number: 1,
+    title: "Analyse et cadrage",
+    description: "Compréhension du besoin, des objectifs et des contraintes.",
+  },
+  {
+    number: 2,
+    title: "Planification",
+    description: "Définition des étapes, ressources, responsabilités et échéances.",
+  },
+  {
+    number: 3,
+    title: "Organisation et coordination",
+    description: "Accompagnement des équipes et intervenants.",
+  },
+  {
+    number: 4,
+    title: "Suivi et contrôle",
+    description: "Suivi de l'avancement, des délais, des ressources et des risques.",
+  },
+  {
+    number: 5,
+    title: "Évaluation et clôture",
+    description: "Bilan, vérification des objectifs et finalisation du projet.",
+  },
+];
 
 export const services: Service[] = [
   {
@@ -6,100 +79,68 @@ export const services: Service[] = [
     slug: "gestion-des-talents",
     title: "Gestion des talents & recrutement",
     shortDescription:
-      "Recrutement ciblé, sélection rigoureuse et intégration réussie de vos collaborateurs.",
+      "Identification, sélection rigoureuse et accompagnement à l'intégration de profils qualifiés adaptés à votre organisation.",
     fullDescription:
-      "Notre service de gestion des talents vous accompagne dans toutes les étapes du cycle de recrutement. De l'analyse des besoins à l'intégration du candidat, nous vous garantissons des profils adaptés à votre culture d'entreprise et à vos objectifs stratégiques.",
+      "Notre service de gestion des talents et recrutement accompagne les entreprises et les institutions dans toutes les étapes de l'acquisition et de l'intégration de leurs collaborateurs. Nous mettons en œuvre une méthodologie rigoureuse pour identifier, évaluer et sélectionner les profils qui répondent précisément à vos enjeux opérationnels.",
+    secondaryDescription:
+      "De l'analyse initiale de vos besoins en personnel jusqu'au suivi de l'intégration en poste selon le mandat confié, nous veillons à sécuriser vos recrutements et à renforcer durablement vos équipes.",
     icon: "Users",
-    imageUrl:
-      "/images/service_recrutement.jpg",
+    imageUrl: "/images/service_recrutement.jpg",
     features: [
-      "Analyse approfondie des postes et compétences requises",
-      "Rédaction et diffusion d'offres sur plateformes ciblées",
-      "Tri et présélection avec outils RH et IA",
-      "Conduite d'entretiens structurés",
-      "Tests techniques & psychométriques",
-      "Rapport complet avec recommandations argumentées",
+      "Analyse des besoins en personnel",
+      "Définition des profils recherchés",
+      "Recherche et présélection des candidats",
+      "Évaluation des candidatures",
+      "Accompagnement du processus de recrutement",
+      "Suivi de l'intégration selon le mandat",
     ],
+    ctaLabel: "Confier un recrutement",
   },
   {
     id: "2",
-    slug: "conseil-strategique",
-    title: "Conseil stratégique",
+    slug: "gestion-de-projets",
+    title: "Gestion et pilotage de projets",
     shortDescription:
-      "Accompagnement stratégique pour optimiser vos ressources humaines et atteindre vos objectifs.",
+      "Conception, planification, coordination et pilotage de vos projets de A à Z, quel que soit votre secteur d'activité.",
     fullDescription:
-      "Notre expertise en conseil stratégique vous permet d'aligner votre politique RH avec vos ambitions d'entreprise. Nous vous aidons à structurer vos organisations, développer vos talents internes et anticiper les évolutions de votre secteur.",
-    icon: "TrendingUp",
-    imageUrl:
-      "/images/service_strategy.jpg",
+      "Nous accompagnons les entreprises et les organisations dans la conception, la planification, la coordination et la réalisation de leurs projets, quel que soit leur domaine d'activité.",
+    secondaryDescription:
+      "De la définition des objectifs à la clôture du projet, nous apportons une méthode structurée pour organiser les ressources, coordonner les intervenants, suivre les délais et accompagner l'atteinte des résultats attendus.",
+    icon: "BarChart3",
+    imageUrl: "/images/service_projects.jpg",
     features: [
-      "Audit organisationnel et diagnostic RH",
-      "Définition de la stratégie RH",
-      "Restructuration et optimisation des processus",
-      "Accompagnement au changement",
-      "Développement de la marque employeur",
-      "Conseil en rémunération et avantages sociaux",
+      "Analyse et cadrage des besoins et objectifs",
+      "Planification des étapes, ressources et échéances",
+      "Organisation et coordination des intervenants",
+      "Suivi de l'avancement, des délais et des risques",
+      "Évaluation des résultats et clôture du projet",
+      "Pilotage multisectoriel selon le mandat confié",
     ],
+    projectSectors,
+    projectSteps: projectLifecycleSteps,
+    ctaLabel: "Discutons de votre projet",
   },
   {
     id: "3",
-    slug: "gestion-de-projets",
-    title: "Gestion de projets",
-    shortDescription:
-      "Pilotage et coordination de vos projets RH pour des résultats mesurables et durables.",
-    fullDescription:
-      "Nous prenons en charge la gestion complète de vos projets RH, de la planification à la livraison. Notre équipe assure le suivi des délais, des budgets et des ressources pour garantir le succès de chaque initiative.",
-    icon: "BarChart3",
-    imageUrl:
-      "/images/service_projects.jpg",
-    features: [
-      "Planification et organisation des projets RH",
-      "Gestion des ressources et des budgets",
-      "Suivi des indicateurs de performance",
-      "Coordination des équipes pluridisciplinaires",
-      "Reporting régulier et tableaux de bord",
-      "Gestion des risques et des parties prenantes",
-    ],
-  },
-  {
-    id: "4",
-    slug: "formation-coaching",
-    title: "Formation & coaching",
-    shortDescription:
-      "Programmes de formation sur mesure et coaching individuel pour développer vos équipes.",
-    fullDescription:
-      "Nous concevons et déployons des programmes de formation adaptés à vos besoins spécifiques. Nos coachs certifiés accompagnent individuellement vos managers et collaborateurs dans leur développement professionnel et personnel.",
-    icon: "GraduationCap",
-    imageUrl:
-      "/images/service_coaching.jpg",
-    features: [
-      "Analyse des besoins en formation",
-      "Conception de programmes sur mesure",
-      "Formation en présentiel et à distance",
-      "Coaching individuel et coaching d'équipe",
-      "Évaluation des acquis et suivi des compétences",
-      "Certification et habilitations professionnelles",
-    ],
-  },
-  {
-    id: "5",
     slug: "immigration",
-    title: "Procédure d'immigration",
+    title: "Accompagnement en immigration",
     shortDescription:
-      "Accompagnement complet dans vos démarches d'immigration vers le Canada et autres destinations.",
+      "Accompagnement structuré et personnalisé dans vos démarches d'immigration vers le Canada (études, travail, résidence permanente).",
     fullDescription:
-      "Notre service d'immigration vous guide à travers toutes les étapes de votre projet migratoire. Visa d'études, résidence permanente, permis de travail — nous vous offrons un accompagnement personnalisé et expert pour sécuriser votre avenir au Canada.",
+      "Notre service d'immigration accompagne les particuliers et les professionnels à travers les différentes étapes de leur projet migratoire vers le Canada. Visa d'études, résidence permanente ou mobilité professionnelle — nous vous offrons un suivi structuré et rigoureux pour préparer et présenter votre dossier dans les meilleures conditions.",
+    secondaryDescription:
+      "Chaque parcours étant unique, nous débutons par une évaluation précise de votre profil et des programmes officiels applicables afin de vous orienter avec transparence et professionnalisme.",
     icon: "Globe",
-    imageUrl:
-      "/images/service_immigration.jpg",
+    imageUrl: "/images/service_immigration.jpg",
     features: [
-      "Évaluation de l'éligibilité et des options d'immigration",
+      "Évaluation de l'éligibilité et des options",
       "Visa d'études pour le Canada",
-      "Résidence permanente (Express Entrée, PNP)",
+      "Résidence permanente (Entrée Express, PNP)",
       "Permis de travail et mobilité internationale",
       "Regroupement familial",
-      "Suivi et accompagnement jusqu'à l'obtention du statut",
+      "Suivi complet tout au long de la procédure",
     ],
+    ctaLabel: "Évaluer mon projet d'immigration",
   },
 ];
 

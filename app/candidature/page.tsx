@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Illustration from "@/components/ui/Illustration";
 import {
@@ -18,40 +17,40 @@ import ApplicationForm from "@/components/forms/ApplicationForm";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
-  title: "Espace Candidats — Coaching & Opportunités | INTER-RH",
+  title: "Espace Candidats — Carrière & Opportunités | INTER-RH",
   description:
-    "Boostez votre carrière avec INTER-RH. Accompagnement personnalisé, coaching, CV, accès aux offres exclusives et accompagnement immigration au Canada.",
+    "Donnez un nouvel élan à votre parcours professionnel avec INTER-RH. Valorisation de votre profil, préparation aux entretiens, accès aux offres d'emploi et accompagnement immigration.",
   alternates: { canonical: "/candidature" },
   openGraph: {
     title: "Espace Candidats | INTER-RH",
     description:
-      "Accédez à un accompagnement personnalisé pour propulser votre carrière.",
+      "Accédez à un accompagnement personnalisé et à des opportunités professionnelles.",
   },
 };
 
 const candidateServices = [
   {
     icon: FileText,
-    title: "CV & Lettre impactants",
+    title: "CV & Dossier de candidature",
     description:
-      "Nous révisons votre CV et lettre de motivation pour les rendre percutants et adaptés aux attentes des recruteurs.",
+      "Nous vous aidons à structurer votre CV et votre lettre de motivation pour mettre en valeur vos compétences auprès des recruteurs.",
     features: [
-      "Analyse personnalisée de votre profil",
-      "Rédaction ou refonte professionnelle",
-      "Conseils LinkedIn et profils en ligne",
-      "Versions française et anglaise",
+      "Analyse personnalisée de votre parcours",
+      "Structuration claire et professionnelle",
+      "Optimisation de votre présence LinkedIn",
+      "Adaptation aux standards locaux et internationaux",
     ],
   },
   {
     icon: GraduationCap,
-    title: "Préparation aux entretiens & coaching",
+    title: "Préparation aux entretiens d'embauche",
     description:
-      "Préparez-vous efficacement avec nos experts RH : simulations réalistes et feedback constructif.",
+      "Préparez-vous efficacement aux étapes de sélection avec nos consultants RH : mises en situation et conseils pratiques.",
     features: [
       "Simulations d'entretiens (visio ou présentiel)",
-      "Conseils langage corporel et questions pièges",
-      "Coaching individuel d'objectifs de carrière",
-      "Suivi post-entretien",
+      "Présentation structurée de votre parcours",
+      "Orientation selon vos objectifs professionnels",
+      "Suivi de votre positionnement",
     ],
   },
   {

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
@@ -17,14 +17,16 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
   }
 
   body {
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: "Poppins", "Inter", system-ui, sans-serif;
     font-size: 1rem;
     line-height: 1.6;
-    color: #1a1a2e;
+    color: #131E3E;
     background-color: #ffffff;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -35,10 +37,15 @@
   h4,
   h5,
   h6 {
-    font-family: "Inter", system-ui, sans-serif;
+    font-family: "Poppins", system-ui, sans-serif;
     font-weight: 700;
-    line-height: 1.2;
-    color: #1a1a2e;
+    line-height: 1.25;
+    color: #243770;
+  }
+
+  .font-directive {
+    font-family: "Directive Four", "Poppins", system-ui, sans-serif;
+    letter-spacing: 0.22em;
   }
 
   a {
@@ -60,7 +67,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid #e63946;
+    outline: 2px solid #e73040;
     outline-offset: 2px;
     border-radius: 4px;
   }
@@ -220,7 +227,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e63946;
+  background: #e73040;
   border-radius: 3px;
 }
 
@@ -232,7 +239,7 @@
    HERO GRADIENT
    ============================================================ */
 .hero-gradient {
-  background: linear-gradient(135deg, #1b2a4a 0%, #243460 45%, #2d1b4e 100%);
+  background: linear-gradient(135deg, #131E3E 0%, #243770 60%, #1B2A56 100%);
 }
 
 /* ============================================================

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import Illustration from "@/components/ui/Illustration";
 import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";
 import NewsCard from "@/components/ui/NewsCard";
@@ -9,13 +8,13 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import { newsArticles } from "@/lib/data/news";
 
 export const metadata: Metadata = {
-  title: "Actualités RH & Immigration | INTER-RH",
+  title: "Actualités — Gestion des talents, Pilotage de projets & Immigration | INTER-RH",
   description:
-    "Restez informés des dernières tendances RH, conseils en recrutement, gestion des talents et actualités immigration au Canada. Blog INTER-RH.",
+    "Restez informés des dernières tendances RH, conseils en recrutement, gestion et pilotage de projets et actualités immigration au Canada. Blog INTER-RH.",
   alternates: { canonical: "/actus" },
   openGraph: {
     title: "Actualités | INTER-RH",
-    description: "Découvrez nos articles sur les RH, la gestion des talents et l'immigration.",
+    description: "Découvrez nos articles sur la gestion des talents, le pilotage de projets et l'immigration.",
   },
 };
 
@@ -26,7 +25,7 @@ export default function ActusPage() {
         overline="BLOG & RESSOURCES"
         title="Nos"
         titleHighlight="Actualités"
-        subtitle="Restez informés des dernières tendances RH, conseils pratiques et actualités immigration."
+        subtitle="Restez informés des dernières tendances en recrutement, pilotage de projets et démarches d'immigration."
         breadcrumbs={[{ label: "Actualités" }]}
       />
 

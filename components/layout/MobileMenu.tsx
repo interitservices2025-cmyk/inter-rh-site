@@ -7,9 +7,7 @@ import {
   ChevronRight,
   Phone,
   Users,
-  TrendingUp,
   BarChart3,
-  GraduationCap,
   Globe,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -34,11 +32,9 @@ interface MobileMenuProps {
 }
 
 const serviceIcons = {
-  "Gestion des talents": Users,
-  "Conseil stratégique": TrendingUp,
-  "Gestion de projets": BarChart3,
-  "Formation & coaching": GraduationCap,
-  Immigration: Globe,
+  "Gestion des talents & recrutement": Users,
+  "Gestion et pilotage de projets": BarChart3,
+  "Accompagnement en immigration": Globe,
 };
 
 export default function MobileMenu({

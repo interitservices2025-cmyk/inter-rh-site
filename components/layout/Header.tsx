@@ -9,11 +9,9 @@ import MobileMenu from "./MobileMenu";
 import { cn } from "@/lib/utils";
 
 const serviceLinks = [
-  { href: "/services/gestion-des-talents", label: "Gestion des talents" },
-  { href: "/services/conseil-strategique", label: "Conseil stratégique" },
-  { href: "/services/gestion-de-projets", label: "Gestion de projets" },
-  { href: "/services/formation-coaching", label: "Formation & coaching" },
-  { href: "/services/immigration", label: "Immigration" },
+  { href: "/services/gestion-des-talents", label: "Gestion des talents & recrutement" },
+  { href: "/services/gestion-de-projets", label: "Gestion et pilotage de projets" },
+  { href: "/services/immigration", label: "Accompagnement en immigration" },
 ];
 
 const navLinks = [
@@ -79,12 +77,12 @@ export default function Header() {
               className="flex items-center shrink-0"
               aria-label="INTER-RH — Accueil"
             >
-              <div className="relative w-[180px] h-[49px] md:w-[220px] md:h-[60px] lg:w-[240px] lg:h-[66px]">
+              <div className="relative w-[150px] h-[42px] sm:w-[180px] sm:h-[49px] md:w-[220px] md:h-[60px] lg:w-[240px] lg:h-[66px]">
                 <Image
                   src="/logo.png"
                   alt="INTER-RH Logo"
                   fill
-                  sizes="(max-width: 768px) 180px, (max-width: 1024px) 220px, 240px"
+                  sizes="(max-width: 640px) 150px, (max-width: 768px) 180px, (max-width: 1024px) 220px, 240px"
                   className="object-contain"
                 />
               </div>
@@ -120,7 +118,7 @@ export default function Header() {
                       {/* Dropdown */}
                       {isServicesOpen && (
                         <div
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-white rounded-2xl shadow-nav-dropdown border border-gray-100 overflow-hidden py-2 animate-fade-in"
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-2xl shadow-nav-dropdown border border-gray-100 overflow-hidden py-2 animate-fade-in"
                           role="menu"
                           aria-labelledby="services-menu-button"
                         >

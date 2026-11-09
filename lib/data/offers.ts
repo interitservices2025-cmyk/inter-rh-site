@@ -51,13 +51,13 @@ export const jobOffers: JobOffer[] = [
   },
   {
     id: "5",
-    title: "Formation Leadership Manager",
+    title: "Coordinateur(trice) de Projets",
     location: "Yaoundé, Cameroun",
-    type: "Freelance",
-    sector: "Grand groupe industriel",
+    type: "CDD",
+    sector: "Développement & Infrastructures",
     description:
-      "Programme de formation continue de 6 semaines à destination des managers intermédiaires pour renforcer le leadership et l'esprit d'équipe.",
-    requirements: ["Expérience en management", "Qualités d'animateur", "Ingénierie de formation", "Coaching"],
+      "Assurez la planification opérationnelle, la coordination des intervenants et le suivi des jalons pour des projets multisectoriels, du cadrage initial jusqu'à la clôture.",
+    requirements: ["Planification de projets", "Coordination d'équipes", "Suivi des délais et risques", "Reporting"],
     publishedAt: "2026-01-21",
     isActive: true,
   },

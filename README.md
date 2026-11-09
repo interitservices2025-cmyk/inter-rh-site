@@ -86,12 +86,20 @@ inter-rh-site/
 ## 🎨 Système de Design
 
 ### Couleurs principales
-- **Rouge primaire** : `#E63946` — CTAs, accents, liens actifs
-- **Navy** : `#1B2A4A` — Footer, hero, titres
+- **Bleu principal** : `#243770` — Identité visuelle, titres, sections sombres, footer
+- **Rouge** : `#e73040` — CTAs, accents, liens actifs
+- **Blanc** : `#ffffff` — Fonds principaux
 - **Gris clair** : `#F0F4F8` — Sections alternées
 
 ### Typographie
-- **Font** : Inter (Google Fonts)
+- **Font principale** : Poppins (Google Fonts) pour le nom INTER-RH et les titres
+- **Font secondaire / Slogan** : Directive Four / Poppins
+
+## 💼 Nos Trois Domaines d'Expertise
+
+1. **Gestion des talents & recrutement** (`/services/gestion-des-talents`)
+2. **Gestion et pilotage de projets** (`/services/gestion-de-projets`) — Accompagnement multisectoriel de A à Z
+3. **Accompagnement en immigration** (`/services/immigration`)
 
 ## 📄 Pages
 

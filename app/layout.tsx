@@ -7,17 +7,21 @@ import Footer from "@/components/layout/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://inter-rh.com"),
   title: {
-    default: "INTER-RH — Cabinet de conseil RH, stratégie & immigration",
+    default: "INTER-RH — Gestion des talents, pilotage de projets & immigration",
     template: "%s | INTER-RH",
   },
   description:
-    "INTER-RH est votre cabinet spécialisé en gestion des talents, conseil stratégique, gestion de projets, formation & coaching et immigration au Canada. Basé à Yaoundé, Cameroun.",
+    "INTER-RH (Inter Human Ressources) accompagne les entreprises et les particuliers dans la gestion des talents et le recrutement, la gestion et le pilotage de projets multisectoriels, et les démarches d'immigration. Basé à Yaoundé, Cameroun.",
   keywords: [
+    "cabinet de gestion des ressources humaines",
+    "recrutement et gestion des talents",
+    "gestion et pilotage de projets",
+    "accompagnement de projets d'entreprise",
+    "immigration",
+    "accompagnement des organisations",
     "cabinet RH Cameroun",
     "recrutement Yaoundé",
-    "gestion des talents",
     "immigration Canada",
-    "conseil stratégique",
     "INTER-RH",
     "Inter Human Ressources",
   ],
@@ -40,23 +44,23 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "https://inter-rh.com",
     siteName: "INTER-RH — Inter Human Ressources",
-    title: "INTER-RH — Votre Cabinet de Conseil en RH",
+    title: "INTER-RH — Gestion des talents, pilotage de projets & immigration",
     description:
-      "Votre partenaire en gestion des talents, conseil stratégique et immigration au Canada. Cabinet RH basé à Yaoundé, Cameroun.",
+      "Votre partenaire en gestion des talents, gestion et pilotage de projets et démarches d'immigration. Cabinet basé à Yaoundé, Cameroun.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "INTER-RH — Cabinet de Conseil en RH",
+        alt: "INTER-RH — Inter Human Ressources",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "INTER-RH — Cabinet de Conseil en RH",
+    title: "INTER-RH — Gestion des talents, pilotage de projets & immigration",
     description:
-      "Votre partenaire en gestion des talents, conseil stratégique et immigration au Canada.",
+      "Votre partenaire en gestion des talents, pilotage de projets et démarches d'immigration.",
     images: ["/og-image.jpg"],
   },
   icons: {

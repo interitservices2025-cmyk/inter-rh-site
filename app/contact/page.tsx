@@ -7,11 +7,11 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 export const metadata: Metadata = {
   title: "Contact — Prenez Rendez-vous | INTER-RH",
   description:
-    "Contactez INTER-RH pour une consultation gratuite. Téléphone, email ou formulaire — notre équipe vous répond rapidement. Yaoundé, Cameroun.",
+    "Contactez INTER-RH pour discuter de vos besoins en recrutement, en gestion et pilotage de projets ou en immigration. Yaoundé, Cameroun.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact | INTER-RH",
-    description: "Contactez notre équipe pour une consultation RH gratuite.",
+    description: "Contactez notre équipe pour échanger sur vos projets et vos besoins.",
   },
 };
 
@@ -64,7 +64,7 @@ export default function ContactPage() {
         overline="PARLONS-NOUS"
         title="Contactez"
         titleHighlight="notre équipe"
-        subtitle="Notre équipe d'experts est disponible pour répondre à toutes vos questions et vous accompagner dans vos projets RH."
+        subtitle="Notre équipe vous accompagne dans la gestion des talents, le pilotage de projets et vos démarches d'immigration."
         breadcrumbs={[{ label: "Contact" }]}
       />
 

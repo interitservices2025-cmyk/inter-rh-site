@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import Illustration from "@/components/ui/Illustration";
+import HomeHero from "@/components/sections/HomeHero";
 import {
   ArrowRight,
   CheckCircle,
@@ -10,27 +10,56 @@ import {
   Star,
   Phone,
   ExternalLink,
+  Building2,
+  Network,
+  Cpu,
+  Users,
+  Compass,
+  Settings,
+  ClipboardCheck,
+  CalendarClock,
+  Layers,
+  Activity,
+  Award,
 } from "lucide-react";
 import ServiceCard from "@/components/ui/ServiceCard";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import NewsCard from "@/components/ui/NewsCard";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import { services } from "@/lib/data/services";
+import { services, projectSectors, projectLifecycleSteps } from "@/lib/data/services";
 import { testimonials } from "@/lib/data/testimonials";
 import { newsArticles } from "@/lib/data/news";
 
 export const metadata: Metadata = {
-  title: "INTER-RH — Cabinet de conseil RH, stratégie & immigration",
+  title: "INTER-RH — Gestion des talents, pilotage de projets & immigration",
   description:
-    "Votre partenaire en gestion des talents, conseil stratégique et immigration.",
+    "INTER-RH accompagne les entreprises et les particuliers dans la gestion des talents et le recrutement, la gestion et le pilotage de projets multisectoriels de A à Z, et les démarches d'immigration.",
   alternates: {
     canonical: "/",
   },
 };
 
+const sectorIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  Building2,
+  Network,
+  TrendingUp,
+  Cpu,
+  Users,
+  Compass,
+  Settings,
+};
+
+const stepIcons = [
+  ClipboardCheck,
+  CalendarClock,
+  Layers,
+  Activity,
+  Award,
+];
+
 function GoogleG() {
   return (
-    <svg viewBox="0 0 24 24" className="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 24 24" className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
       <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
       <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
@@ -43,140 +72,75 @@ export default function HomePage() {
   return (
     <>
       {/* ===================================================
-          SECTION 1 : HERO SECTION
+          SECTION 1 : HERO AVEC VIDÉO OU IMAGE DE FOND
           =================================================== */}
-      <section
-        id="hero"
-        className="relative overflow-hidden min-h-[85vh] flex items-center bg-navy-900 text-white"
-        aria-labelledby="hero-title"
-      >
-        {/* Background Image with Dark Overlay */}
-        <div className="absolute inset-0 z-0">
-          <Illustration
-            name="hero_home"
-            className="opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1b2a4a]/90 via-[#243460]/85 to-[#2d1b4e]/80" />
-        </div>
-
-        <div className="container-xl relative z-10 py-20 text-center">
-          <div className="animate-fade-in max-w-4xl mx-auto">
-            <h1
-              id="hero-title"
-              className="text-white text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-8"
-            >
-              Votre cabinet <span className="text-primary-500">de conseil</span>
-            </h1>
-
-            <p className="text-white/90 text-lg sm:text-xl max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
-              Votre partenaire en gestion des talents, conseil stratégique et immigration
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-              <Link prefetch={false}
-                href="/notre-agence"
-                className="btn-primary text-sm px-8 py-3.5 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/35 hover:-translate-y-0.5 transition-all duration-300"
-              >
-                En savoir plus sur nous
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link prefetch={false}
-                href="/contact"
-                className="btn-outline text-sm px-8 py-3.5 hover:-translate-y-0.5 transition-all duration-300"
-              >
-                Nous contacter
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeHero />
 
       {/* ===================================================
-          SECTION 2 : ACCOMPAGNEMENT RH
-          =================================================== */}
-      <section
-        className="section-light"
-        aria-labelledby="about-intro-title"
-      >
-        <div className="container-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Colonne Gauche */}
-            <AnimatedSection animation="slide-left">
-              <div className="border-left-accent mb-6">
-                <h2
-                  id="about-intro-title"
-                  className="text-2xl md:text-3xl font-extrabold text-navy-500 leading-snug"
-                >
-                  Un accompagnement RH sur mesure selon vos besoins et votre réalité
-                </h2>
-              </div>
-
-              {/* Boîte d'appel direct type Lovable */}
-              <div className="mt-8 bg-primary-500 text-white rounded-3xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 hover:shadow-lg transition-all duration-300 max-w-md">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                </div>
-                <div>
-                  <p className="text-[10px] sm:text-xs text-white/80 font-bold uppercase tracking-wider">Appelez-nous</p>
-                  <a
-                    href="tel:+237679033398"
-                    className="text-white font-extrabold text-xs sm:text-base md:text-lg block hover:underline whitespace-nowrap"
-                  >
-                    +237 679 033 398 / +237 695 296 446
-                  </a>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            {/* Colonne Droite */}
-            <AnimatedSection animation="slide-right" delay={0.2}>
-              <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                Nous accompagnons les entreprises et les particuliers dans le recrutement, le
-                développement organisationnel, la gestion de projets, la formation professionnelle
-                et les démarches d'immigration.
-              </p>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ===================================================
-          SECTION 3 : QUI SOMMES-NOUS ? (INTER-RH)
+          SECTION 2 : PRÉSENTATION D'INTER-RH
           =================================================== */}
       <section
         className="section-white"
         aria-labelledby="about-qsn-title"
       >
         <div className="container-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left Column */}
-            <AnimatedSection animation="slide-left">
-              <span className="text-primary-500 font-bold text-xs tracking-widest uppercase mb-3 block">
-                Qui sommes-nous ?
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Column - Presentation */}
+            <AnimatedSection animation="slide-left" className="lg:col-span-7">
+              <span className="section-overline block">
+                Présentation du cabinet
               </span>
               <h2
                 id="about-qsn-title"
-                className="text-3xl font-extrabold text-navy-500 mb-6"
+                className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-navy-500 mb-6 leading-tight"
               >
-                INTER-RH
+                INTER-RH, un partenaire structuré au service des organisations et des parcours professionnels
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-8 text-sm md:text-base">
-                est un cabinet spécialisé en gestion des ressources humaines, conseil stratégique et immigration. 
-                Nous plaçons l'humain au centre de chaque démarche et offrons des solutions professionnelles 
-                adaptées aux besoins des particuliers et des organisations.
+              <div className="border-left-accent mb-6">
+                <p className="text-navy-500 font-semibold text-base sm:text-lg leading-relaxed">
+                  Basé à Yaoundé, INTER-HUMAN RESSOURCES (INTER-RH) accompagne les entreprises, les institutions et les particuliers dans la réussite de leurs démarches et le développement de leurs activités.
+                </p>
+              </div>
+              <p className="text-gray-600 leading-relaxed mb-8 text-sm sm:text-base">
+                Qu&apos;il s&apos;agisse de recruter et d&apos;intégrer des talents qualifiés, de coordonner et piloter des projets d&apos;envergure dans différents secteurs d&apos;activité, ou de sécuriser un projet d&apos;immigration vers le Canada, nous mettons en œuvre une approche humaine, rigoureuse et adaptée à la réalité de chaque mandat.
               </p>
-              <Link prefetch={false} href="/notre-agence" className="btn-primary text-sm">
-                En savoir plus sur nous
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <Link
+                  prefetch={false}
+                  href="/notre-agence"
+                  className="btn-primary justify-center text-sm"
+                >
+                  En savoir plus sur le cabinet
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href="tel:+237679033398"
+                  className="inline-flex items-center justify-center gap-3 px-5 py-3 rounded-full bg-navy-50 text-navy-500 hover:bg-navy-100 font-semibold text-sm transition-colors"
+                >
+                  <Phone className="w-4 h-4 text-primary-500 shrink-0" />
+                  <span>+237 679 033 398</span>
+                </a>
+              </div>
             </AnimatedSection>
 
-            {/* Right Column - Team Image */}
-            <AnimatedSection animation="slide-right" delay={0.2} className="relative">
-              <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl">
-                <Illustration
-                  name="team_about"
-                />
+            {/* Right Column - Visual & Key Pillars */}
+            <AnimatedSection animation="slide-right" delay={0.15} className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden shadow-xl border border-gray-100 bg-navy-500">
+                <div className="h-[280px] sm:h-[320px] relative">
+                  <Illustration name="team_about" />
+                </div>
+                <div className="p-6 sm:p-8 bg-navy-500 text-white">
+                  <p className="font-directive text-xs text-primary-400 uppercase tracking-widest mb-2">
+                    Notre engagement
+                  </p>
+                  <p className="text-white font-bold text-base sm:text-lg mb-2">
+                    Allier exigence méthodologique et proximité humaine
+                  </p>
+                  <p className="text-blue-100/80 text-xs sm:text-sm leading-relaxed">
+                    Un interlocuteur dédié pour analyser vos objectifs, structurer vos démarches et accompagner l&apos;atteinte de résultats concrets.
+                  </p>
+                </div>
               </div>
             </AnimatedSection>
           </div>
@@ -184,217 +148,334 @@ export default function HomePage() {
       </section>
 
       {/* ===================================================
-          SECTION 4 : DOMAINES DE COMPÉTENCES (SERVICES)
+          SECTION 3 : NOS TROIS DOMAINES D'EXPERTISE
           =================================================== */}
       <section
         className="section-light"
         aria-labelledby="services-title"
       >
         <div className="container-xl">
-          <AnimatedSection animation="fade-in" className="text-center mb-14">
-            <h2 id="services-title" className="text-3xl md:text-4xl font-bold text-navy-500 mb-4">
-              Nos domaines de compétences
+          <AnimatedSection animation="fade-in" className="text-center mb-12">
+            <p className="section-overline">Ce que nous faisons</p>
+            <h2 id="services-title" className="section-title">
+              Nos trois domaines d&apos;expertise
             </h2>
-            <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto">
-              Nos experts vous guident tout au long de votre démarche
+            <p className="section-subtitle">
+              Une offre claire autour de trois pôles complémentaires pour répondre aux besoins des entreprises et des particuliers.
             </p>
           </AnimatedSection>
 
           <AnimatedSection animation="slide-up" delay={0.1}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.slice(0, 3).map((service) => (
-                <ServiceCard key={service.id} service={service} variant="image" />
-              ))}
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto mt-8">
-              {services.slice(3).map((service) => (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+              {services.map((service) => (
                 <ServiceCard key={service.id} service={service} variant="image" />
               ))}
             </div>
           </AnimatedSection>
-
         </div>
       </section>
 
       {/* ===================================================
-          SECTION 5 : POURQUOI NOUS CHOISIR ?
+          SECTION 4 : FOCUS SUR LA GESTION ET LE PILOTAGE DE PROJETS
+          =================================================== */}
+      <section
+        id="pilotage-projets"
+        className="bg-navy-500 py-16 text-white relative overflow-hidden"
+        aria-labelledby="project-focus-title"
+      >
+        {/* Subtle decorative circles */}
+        <div
+          className="absolute top-0 right-0 w-80 h-80 rounded-full bg-white/5 -translate-y-1/2 translate-x-1/3 pointer-events-none"
+          aria-hidden="true"
+        />
+
+        <div className="container-xl relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <AnimatedSection animation="slide-left" className="lg:col-span-6">
+              <span className="inline-flex items-center gap-2 bg-primary-500/20 border border-primary-500/40 text-primary-300 text-xs font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-4">
+                Expertise multisectorielle
+              </span>
+              <h2
+                id="project-focus-title"
+                className="text-2xl sm:text-3xl font-extrabold text-white mb-4 leading-tight"
+              >
+                Gestion et pilotage de projets
+              </h2>
+              <p className="text-blue-100/90 text-sm sm:text-base leading-relaxed mb-4">
+                Nous accompagnons les entreprises et les organisations dans la conception, la planification, la coordination et la réalisation de leurs projets, quel que soit leur domaine d&apos;activité.
+              </p>
+              <p className="text-blue-100/80 text-xs sm:text-sm leading-relaxed mb-6">
+                De la définition des objectifs à la clôture, nous apportons une méthode structurée pour organiser les ressources, coordonner les intervenants et suivre les délais selon le mandat confié.
+              </p>
+
+              <div className="flex flex-wrap gap-3.5">
+                <Link
+                  prefetch={false}
+                  href="/contact?sujet=Gestion%20et%20pilotage%20de%20projets"
+                  className="btn-primary text-sm"
+                >
+                  Discutons de votre projet
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  prefetch={false}
+                  href="/services/gestion-de-projets"
+                  className="btn-outline text-sm"
+                >
+                  Détails de l&apos;accompagnement
+                </Link>
+              </div>
+            </AnimatedSection>
+
+            {/* Right Column: Compact Project Sectors Badges */}
+            <AnimatedSection animation="slide-right" delay={0.15} className="lg:col-span-6">
+              <div className="bg-white/6 backdrop-blur-sm border border-white/12 rounded-3xl p-6 sm:p-7">
+                <h3 className="text-white font-bold text-base sm:text-lg mb-1.5">
+                  Domaines d&apos;intervention
+                </h3>
+                <p className="text-blue-200/80 text-xs mb-5">
+                  Accompagnement, coordination et pilotage de projets dans différents secteurs :
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {projectSectors.map((sector, index) => {
+                    const Icon = sectorIcons[sector.icon] || Building2;
+                    const isLastOdd =
+                      index === projectSectors.length - 1 &&
+                      projectSectors.length % 2 !== 0;
+                    return (
+                      <div
+                        key={sector.title}
+                        className={`px-3.5 py-3 rounded-xl bg-white/8 hover:bg-white/12 border border-white/10 transition-colors flex items-center gap-3 ${
+                          isLastOdd ? "sm:col-span-2" : ""
+                        }`}
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-primary-500/20 border border-primary-500/30 flex items-center justify-center shrink-0">
+                          <Icon className="w-4 h-4 text-primary-300" />
+                        </div>
+                        <span className="text-white font-semibold text-xs sm:text-sm leading-snug">
+                          {sector.title}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================================================
+          SECTION 5 : NOTRE MÉTHODE D'ACCOMPAGNEMENT DE A À Z
           =================================================== */}
       <section
         className="section-white"
+        aria-labelledby="lifecycle-title"
+      >
+        <div className="container-xl">
+          <AnimatedSection animation="fade-in" className="text-center mb-14">
+            <p className="section-overline">Cycle de vie du projet</p>
+            <h2 id="lifecycle-title" className="section-title">
+              Notre accompagnement de A à Z
+            </h2>
+            <p className="section-subtitle">
+              Une méthodologie structurée en 5 étapes clés pour couvrir l&apos;ensemble du cycle de vie de votre projet et sécuriser l&apos;atteinte de vos objectifs.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection animation="slide-up" delay={0.1}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+              {projectLifecycleSteps.map((step, idx) => {
+                const StepIcon = stepIcons[idx] || ClipboardCheck;
+                return (
+                  <div
+                    key={step.number}
+                    className="card-bordered p-6 flex flex-col justify-between relative group hover:-translate-y-1 transition-all duration-300 bg-white"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="w-11 h-11 rounded-2xl bg-navy-50 group-hover:bg-primary-50 flex items-center justify-center transition-colors">
+                          <StepIcon className="w-5 h-5 text-navy-500 group-hover:text-primary-500 transition-colors" />
+                        </div>
+                        <span className="text-2xl font-extrabold text-primary-500/25 group-hover:text-primary-500 transition-colors">
+                          0{step.number}
+                        </span>
+                      </div>
+                      <h3 className="font-bold text-navy-500 text-base mb-2.5 group-hover:text-primary-500 transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                    <div className="mt-6 pt-3 border-t border-gray-100 flex items-center justify-between text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+                      <span>Étape {step.number} / 5</span>
+                      <span className="w-2 h-2 rounded-full bg-primary-500/40 group-hover:bg-primary-500 transition-colors" />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link
+                prefetch={false}
+                href="/contact?sujet=Gestion%20et%20pilotage%20de%20projets"
+                className="btn-primary text-sm px-8 py-3.5"
+              >
+                Discutons de votre projet
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ===================================================
+          SECTION 6 : POURQUOI CHOISIR INTER-RH ? (+ AVIS CLIENTS)
+          =================================================== */}
+      <section
+        className="section-light"
         aria-labelledby="why-us-title"
       >
         <div className="container-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
             {/* Image */}
             <AnimatedSection animation="slide-left" className="relative">
-              <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-xl">
-                <Illustration
-                  name="why_choose_us"
-                />
+              <div className="relative h-[340px] sm:h-[400px] rounded-3xl overflow-hidden shadow-xl">
+                <Illustration name="why_choose_us" />
               </div>
             </AnimatedSection>
 
             {/* Content */}
-            <AnimatedSection animation="slide-right" delay={0.2}>
-              <span className="text-primary-500 font-bold text-xs tracking-widest uppercase mb-3 block">
-                Pourquoi nous choisir ?
+            <AnimatedSection animation="slide-right" delay={0.15}>
+              <span className="section-overline block">
+                Pourquoi choisir INTER-RH ?
               </span>
               <h2
                 id="why-us-title"
-                className="text-2xl md:text-3xl font-extrabold text-navy-500 mb-4 leading-snug"
+                className="text-2xl sm:text-3xl font-extrabold text-navy-500 mb-4 leading-snug"
               >
-                L'humain et la qualité au centre de chaque action
+                L&apos;humain, la méthode et la qualité au centre de chaque action
               </h2>
-              <p className="text-gray-600 mb-8 leading-relaxed text-sm">
-                Chez <strong>INTER-RH</strong>, notre engagement repose sur trois piliers essentiels :
+              <p className="text-gray-600 mb-8 leading-relaxed text-sm sm:text-base">
+                Chez <strong>INTER-RH</strong>, notre accompagnement repose sur trois engagements fondamentaux auprès des entreprises et des particuliers :
               </p>
 
               {/* Pillars */}
-              <div className="space-y-5 mb-8">
+              <div className="space-y-4 mb-8">
                 {[
                   {
                     icon: Shield,
-                    title: "Fiabilité",
-                    desc: "dans notre accompagnement",
+                    title: "Fiabilité et rigueur",
+                    desc: "Des processus structurés, du cadrage initial jusqu'à la réalisation finale.",
                   },
                   {
                     icon: CheckCircle,
                     title: "Transparence",
-                    desc: "dans toutes nos démarches",
+                    desc: "Une communication claire et un suivi régulier à chaque étape de votre dossier ou projet.",
                   },
                   {
                     icon: TrendingUp,
                     title: "Performance durable",
-                    desc: "pour des résultats qui vous suivent sur le long terme",
+                    desc: "Des solutions pragmatiques orientées vers l'atteinte de vos objectifs opérationnels.",
                   },
                 ].map((pillar) => (
                   <div
                     key={pillar.title}
-                    className="flex items-start gap-4"
+                    className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-gray-100 shadow-xs"
                   >
                     <div className="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center shrink-0 mt-0.5">
                       <pillar.icon className="w-5 h-5 text-primary-500" />
                     </div>
-                    <p className="text-navy-500 text-sm">
-                      <strong className="font-semibold">{pillar.title}</strong>{" "}
-                      <span className="text-gray-600">{pillar.desc}</span>
-                    </p>
+                    <div>
+                      <h3 className="text-navy-500 font-bold text-sm mb-0.5">
+                        {pillar.title}
+                      </h3>
+                      <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                        {pillar.desc}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
 
               <Link prefetch={false} href="/contact" className="btn-primary text-sm">
-                Contactez-nous
+                Prendre contact avec notre équipe
                 <ArrowRight className="w-4 h-4" />
               </Link>
+            </AnimatedSection>
+          </div>
+
+          {/* Témoignages Google intégrés à la preuve de confiance */}
+          <div className="pt-12 border-t border-gray-200/80">
+            <AnimatedSection animation="fade-in" className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-white border border-gray-200 shadow-xs text-navy-500 font-semibold text-xs sm:text-sm px-4 py-2 rounded-full mb-4">
+                <GoogleG />
+                AVIS CLIENTS VÉRIFIÉS
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-navy-500 mb-3">
+                Ils nous ont fait confiance
+              </h3>
+              <div className="flex items-center justify-center gap-2">
+                <div className="flex">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <span className="text-navy-500 font-extrabold text-sm sm:text-base">5,0 / 5</span>
+                <span className="text-gray-500 text-xs sm:text-sm">— INTER-RH sur Google</span>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection animation="slide-up" delay={0.1}>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                {testimonials.map((testimonial) => (
+                  <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+                ))}
+              </div>
+
+              <div className="text-center">
+                <a
+                  href="https://g.page/r/CcboD9Wi2Pv_EAI/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline-dark text-xs sm:text-sm inline-flex items-center gap-2 bg-white"
+                >
+                  Consulter ou laisser un avis sur Google
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
       {/* ===================================================
-          SECTION 6 : BANNÈRE DE CTA INTERMÉDIAIRE
-          =================================================== */}
-      <section className="bg-[#e63946] py-16 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <AnimatedSection animation="scale-in" className="container-xl relative z-10 text-center max-w-3xl">
-          <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
-            <Star className="w-6 h-6 text-white fill-white" />
-          </div>
-          <h2 className="text-white text-2xl md:text-3xl font-extrabold mb-4 leading-tight">
-            Obtenez une consultation dès maintenant !
-          </h2>
-          <p className="text-white/80 text-sm md:text-base mb-8 max-w-xl mx-auto leading-relaxed">
-            Contactez-nous dès aujourd'hui en remplissant notre formulaire en ligne et nous vous recontacterons dans les plus brefs délais.
-          </p>
-          <Link prefetch={false}
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-white text-primary-500 hover:bg-white/95 font-bold px-6 py-3 rounded-full transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 text-sm"
-          >
-            Contactez-nous
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </AnimatedSection>
-      </section>
-
-      {/* ===================================================
-          SECTION 5 : TÉMOIGNAGES (AVIS GOOGLE)
+          SECTION 7 : ACTUALITÉS
           =================================================== */}
       <section
         className="section-white"
-        aria-labelledby="testimonials-title"
-      >
-        <div className="container-xl">
-          <AnimatedSection animation="fade-in" className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-white border border-gray-200 shadow-sm text-gray-700 font-semibold text-sm px-4 py-2 rounded-full mb-6">
-              <GoogleG />
-              AVIS GOOGLE
-            </div>
-            <h2
-              id="testimonials-title"
-              className="text-3xl md:text-4xl font-extrabold text-navy-500 mb-4"
-            >
-              Ils nous ont fait confiance
-            </h2>
-            {/* Rating */}
-            <div className="flex items-center justify-center gap-2">
-              <div className="flex">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                  />
-                ))}
-              </div>
-              <span className="text-navy-500 font-extrabold text-base">5,0 / 5</span>
-              <span className="text-gray-500 text-sm">— Inter-RH sur Google</span>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection animation="slide-up" delay={0.1}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              {testimonials.map((testimonial) => (
-                <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-              ))}
-            </div>
-
-            <div className="text-center">
-              <a
-                href="https://g.page/r/CcboD9Wi2Pv_EAI/review"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-sm inline-flex items-center gap-2"
-              >
-                Laisser un avis sur Google
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* ===================================================
-          SECTION 6 : ACTUALITÉS / BLOG
-          =================================================== */}
-      <section
-        className="section-light"
         aria-labelledby="news-title"
       >
         <div className="container-xl">
-          <AnimatedSection animation="slide-up" className="flex items-end justify-between mb-12">
+          <AnimatedSection animation="slide-up" className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="inline-flex items-center gap-1.5 bg-primary-50 text-primary-500 text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                Actualités
-              </span>
-              <h2 id="news-title" className="section-title mb-2">
-                Dernières nouvelles
+              <p className="section-overline">Actualités & Ressources</p>
+              <h2 id="news-title" className="section-title mb-0">
+                Dernières publications
               </h2>
             </div>
-            <Link prefetch={false}
+            <Link
+              prefetch={false}
               href="/actus"
-              className="hidden sm:flex items-center gap-2 text-primary-500 font-semibold text-sm hover:gap-3 transition-all duration-200"
+              className="hidden sm:inline-flex items-center gap-2 text-primary-500 font-bold text-sm hover:gap-3 transition-all duration-200"
             >
-              Tous les articles
+              Voir tous les articles
               <ArrowRight className="w-4 h-4" />
             </Link>
           </AnimatedSection>
@@ -408,12 +489,63 @@ export default function HomePage() {
 
             <div className="text-center mt-10 sm:hidden">
               <Link prefetch={false} href="/actus" className="btn-outline-dark text-sm">
-                Tous les articles
+                Voir tous les articles
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </AnimatedSection>
         </div>
+      </section>
+
+      {/* ===================================================
+          SECTION 8 : APPEL À L'ACTION ET CONTACT
+          =================================================== */}
+      <section
+        className="bg-primary-500 py-16 sm:py-20 text-white relative overflow-hidden"
+        aria-labelledby="home-cta-title"
+      >
+        <div
+          className="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute bottom-0 left-0 w-56 h-56 bg-navy-500/20 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none"
+          aria-hidden="true"
+        />
+
+        <AnimatedSection animation="scale-in" className="container-xl relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="font-directive text-xs uppercase tracking-[0.2em] text-white/90 mb-3">
+              INTER-HUMAN RESSOURCES
+            </p>
+            <h2
+              id="home-cta-title"
+              className="text-white text-2xl sm:text-3xl md:text-4xl font-extrabold mb-5 leading-tight"
+            >
+              Prêt à concrétiser votre recrutement, votre projet d&apos;entreprise ou votre démarche d&apos;immigration ?
+            </h2>
+            <p className="text-white/90 text-sm sm:text-base md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+              Échangeons sur vos objectifs. Notre équipe vous accueille à Yaoundé ou à distance pour définir un accompagnement adapté à vos besoins.
+            </p>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
+              <Link
+                prefetch={false}
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 bg-white text-navy-500 hover:bg-gray-50 font-bold px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:-translate-y-0.5 text-sm sm:text-base"
+              >
+                Nous contacter
+                <ArrowRight className="w-4 h-4 text-primary-500" />
+              </Link>
+              <a
+                href="tel:+237679033398"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white/80 hover:border-white text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-full transition-all duration-200 text-sm sm:text-base"
+              >
+                <Phone className="w-4 h-4" />
+                +237 679 033 398
+              </a>
+            </div>
+          </div>
+        </AnimatedSection>
       </section>
     </>
   );

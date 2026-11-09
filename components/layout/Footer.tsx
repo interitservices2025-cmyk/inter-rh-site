@@ -10,11 +10,9 @@ import {
 } from "lucide-react";
 
 const footerServices = [
-  { href: "/services/gestion-des-talents", label: "Gestion des talents" },
-  { href: "/services/conseil-strategique", label: "Conseil stratégique" },
-  { href: "/services/gestion-de-projets", label: "Gestion de projets" },
-  { href: "/services/formation-coaching", label: "Formation & coaching" },
-  { href: "/services/immigration", label: "Immigration" },
+  { href: "/services/gestion-des-talents", label: "Gestion des talents & recrutement" },
+  { href: "/services/gestion-de-projets", label: "Gestion et pilotage de projets" },
+  { href: "/services/immigration", label: "Accompagnement en immigration" },
 ];
 
 const footerLinks = [
@@ -69,9 +67,9 @@ export default function Footer() {
             </Link>
 
             <p className="text-blue-200/80 text-sm leading-relaxed max-w-xs">
-              INTER-RH est un cabinet spécialisé dans la gestion des talents, le
-              conseil stratégique, la gestion de projets, la formation et
-              l&apos;accompagnement en immigration.
+              INTER-RH accompagne les entreprises et les particuliers dans la
+              gestion des talents, le pilotage de projets et les démarches
+              d&apos;immigration.
             </p>
           </div>
 
@@ -115,7 +113,7 @@ export default function Footer() {
             <address className="not-italic space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" />
-                <p className="text-blue-200/70 text-xs sm:text-sm leading-relaxed whitespace-nowrap">
+                <p className="text-blue-200/70 text-xs sm:text-sm leading-relaxed">
                   Rue 2.365, Yaoundé-Tsinga, Cameroun (Derrière Tradex)
                 </p>
               </div>
@@ -124,7 +122,7 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" />
                 <a
                   href="tel:+237679033398"
-                  className="text-blue-200/70 hover:text-white transition-colors text-xs sm:text-sm whitespace-nowrap"
+                  className="text-blue-200/70 hover:text-white transition-colors text-xs sm:text-sm"
                 >
                   +237 679 033 398 / +237 695 296 446
                 </a>
@@ -134,7 +132,7 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" />
                 <a
                   href="mailto:contact@inter-rh.com"
-                  className="text-blue-200/70 hover:text-white text-xs sm:text-sm transition-colors whitespace-nowrap"
+                  className="text-blue-200/70 hover:text-white text-xs sm:text-sm transition-colors break-all"
                 >
                   contact@inter-rh.com
                 </a>
