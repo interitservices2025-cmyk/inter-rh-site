@@ -113,9 +113,15 @@ export default function MobileMenu({
 
           {/* Services section */}
           <div className="mt-6">
-            <p className="px-4 text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
-              Nos Services
-            </p>
+            <Link
+              prefetch={false}
+              href="/nos-services"
+              onClick={onClose}
+              className="flex items-center justify-between px-4 text-xs font-bold text-gray-400 hover:text-primary-500 uppercase tracking-widest mb-3 transition-colors"
+            >
+              <span>Nos Services</span>
+              <span className="text-[11px] font-semibold text-primary-500 normal-case">Voir tout</span>
+            </Link>
             <ul className="space-y-1">
               {serviceLinks.map((svc) => {
                 const Icon = serviceIcons[svc.label as keyof typeof serviceIcons];

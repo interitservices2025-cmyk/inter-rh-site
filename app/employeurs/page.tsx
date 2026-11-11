@@ -15,14 +15,32 @@ import StepCard from "@/components/ui/StepCard";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
-  title: "Espace Employeurs — Recrutement & Solutions RH | INTER-RH",
+  title: "Espace Employeurs — Recrutement, Évaluation & Intégration RH au Cameroun",
   description:
-    "INTER-RH gère l'ensemble du cycle de recrutement pour vous libérer du temps et garantir des profils adaptés. Découvrez notre méthodologie en 6 étapes.",
-  alternates: { canonical: "/employeurs" },
+    "Confiez vos recrutements à INTER-RH : analyse de besoins, chasse de têtes, évaluation des compétences techniques et comportementales, et suivi d'intégration au Cameroun.",
+  keywords: [
+    "recruter au Cameroun",
+    "cabinet de recrutement Yaoundé Douala",
+    "externalisation recrutement Cameroun",
+    "chasse de têtes Afrique Centrale",
+    "évaluation candidats RH",
+    "onboarding collaborateurs",
+  ],
+  alternates: { canonical: "https://www.inter-rh.com/employeurs" },
   openGraph: {
-    title: "Espace Employeurs | INTER-RH",
+    title: "Espace Employeurs — Solutions de Recrutement | INTER-RH",
     description:
-      "Externalisez votre recrutement à des experts. Méthodologie rigoureuse, résultats garantis.",
+      "Externalisez votre recrutement auprès d'experts RH au Cameroun. Méthodologie rigoureuse en 6 étapes et suivi d'intégration.",
+    url: "https://www.inter-rh.com/employeurs",
+    type: "website",
+    images: [
+      {
+        url: "/images/hero-poster.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Espace Employeurs INTER-RH — Recrutement au Cameroun",
+      },
+    ],
   },
 };
 

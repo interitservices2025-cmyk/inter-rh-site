@@ -22,19 +22,19 @@ const animations: Record<AnimationType, { initial: TargetAndTransition; animate:
     animate: { opacity: 1 },
   },
   "slide-up": {
-    initial: { opacity: 0, y: 40 },
+    initial: { opacity: 0, y: 24 },
     animate: { opacity: 1, y: 0 },
   },
   "slide-left": {
-    initial: { opacity: 0, x: -40 },
-    animate: { opacity: 1, x: 0 },
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
   },
   "slide-right": {
-    initial: { opacity: 0, x: 40 },
-    animate: { opacity: 1, x: 0 },
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
   },
   "scale-in": {
-    initial: { opacity: 0, scale: 0.95 },
+    initial: { opacity: 0, scale: 0.96 },
     animate: { opacity: 1, scale: 1 },
   },
 };
@@ -46,7 +46,7 @@ export default function AnimatedSection({
   delay = 0,
   duration = 0.6,
   once = true,
-  amount = 0.2,
+  amount = 0.05,
 }: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once, amount });

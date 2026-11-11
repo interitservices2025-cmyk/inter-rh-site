@@ -192,7 +192,7 @@ export default function Header() {
       />
 
       {/* Spacer for fixed header */}
-      <div className="h-[73px] md:h-[84px] lg:h-[90px]" aria-hidden="true" />
+      <div className="h-[74px] sm:h-[81px] md:h-[92px] lg:h-[98px]" aria-hidden="true" />
     </>
   );
 }

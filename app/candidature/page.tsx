@@ -17,14 +17,32 @@ import ApplicationForm from "@/components/forms/ApplicationForm";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
-  title: "Espace Candidats — Carrière & Opportunités | INTER-RH",
+  title: "Espace Candidats — Candidature Spontanée, Carrière & Emploi au Cameroun",
   description:
-    "Donnez un nouvel élan à votre parcours professionnel avec INTER-RH. Valorisation de votre profil, préparation aux entretiens, accès aux offres d'emploi et accompagnement immigration.",
-  alternates: { canonical: "/candidature" },
+    "Propulsez votre carrière avec INTER-RH : déposez votre candidature spontanée, optimisez votre CV, préparez vos entretiens d'embauche et accédez aux meilleures opportunités au Cameroun et à l'international.",
+  keywords: [
+    "candidature spontanée Cameroun",
+    "trouver un emploi Yaoundé Douala",
+    "accompagnement carrière Cameroun",
+    "coaching entretien embauche",
+    "optimisation CV professionnel",
+    "mobilité internationale Canada",
+  ],
+  alternates: { canonical: "https://www.inter-rh.com/candidature" },
   openGraph: {
-    title: "Espace Candidats | INTER-RH",
+    title: "Espace Candidats — Propulsez votre carrière | INTER-RH",
     description:
-      "Accédez à un accompagnement personnalisé et à des opportunités professionnelles.",
+      "Déposez votre CV et bénéficiez d'un accompagnement personnalisé pour accéder aux opportunités d'emploi de nos entreprises partenaires.",
+    url: "https://www.inter-rh.com/candidature",
+    type: "website",
+    images: [
+      {
+        url: "/images/hero-poster.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Espace Candidats INTER-RH — Carrière et emploi",
+      },
+    ],
   },
 };
 

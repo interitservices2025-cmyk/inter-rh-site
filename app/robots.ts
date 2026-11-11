@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/", "/admin/"],
       },
     ],
-    sitemap: "https://inter-rh.com/sitemap.xml",
-    host: "https://inter-rh.com",
+    sitemap: "https://www.inter-rh.com/sitemap.xml",
+    host: "https://www.inter-rh.com",
   };
 }

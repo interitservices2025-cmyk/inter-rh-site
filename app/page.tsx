@@ -31,11 +31,40 @@ import { testimonials } from "@/lib/data/testimonials";
 import { newsArticles } from "@/lib/data/news";
 
 export const metadata: Metadata = {
-  title: "INTER-RH — Gestion des talents, pilotage de projets & immigration",
+  title:
+    "INTER-RH — Cabinet RH, Recrutement, Pilotage de projets & Immigration au Cameroun",
   description:
-    "INTER-RH accompagne les entreprises et les particuliers dans la gestion des talents et le recrutement, la gestion et le pilotage de projets multisectoriels de A à Z, et les démarches d'immigration.",
+    "Basé à Yaoundé, INTER-RH accompagne les entreprises et les particuliers dans la gestion des talents et le recrutement, la gestion et le pilotage de projets multisectoriels de A à Z, et les démarches d'immigration (Canada, Australie, Luxembourg, Europe) ainsi que les études au Maroc et en Tunisie.",
+  keywords: [
+    "INTER-RH",
+    "cabinet RH Yaoundé",
+    "recrutement Cameroun",
+    "pilotage de projets Cameroun",
+    "immigration Canada Australie Luxembourg Europe",
+    "études Maroc Tunisie Cameroun",
+    "gestion des talents Afrique",
+    "Entrée express Canada",
+  ],
   alternates: {
-    canonical: "/",
+    canonical: "https://www.inter-rh.com",
+  },
+  openGraph: {
+    title:
+      "INTER-RH — Gestion des talents, pilotage de projets & immigration",
+    description:
+      "Votre partenaire structuré à Yaoundé pour le recrutement de talents, la coordination et le pilotage de projets de A à Z, et l'immigration internationale (Canada, Australie, Europe, Maroc, Tunisie).",
+    url: "https://www.inter-rh.com",
+    siteName: "INTER-RH — Inter Human Ressources",
+    locale: "fr_FR",
+    type: "website",
+    images: [
+      {
+        url: "/images/hero-poster.jpg",
+        width: 1200,
+        height: 630,
+        alt: "INTER-RH — Gestion des talents, pilotage de projets et immigration",
+      },
+    ],
   },
 };
 
@@ -102,7 +131,7 @@ export default function HomePage() {
                 </p>
               </div>
               <p className="text-gray-600 leading-relaxed mb-8 text-sm sm:text-base">
-                Qu&apos;il s&apos;agisse de recruter et d&apos;intégrer des talents qualifiés, de coordonner et piloter des projets d&apos;envergure dans différents secteurs d&apos;activité, ou de sécuriser un projet d&apos;immigration vers le Canada, nous mettons en œuvre une approche humaine, rigoureuse et adaptée à la réalité de chaque mandat.
+                Qu&apos;il s&apos;agisse de recruter et d&apos;intégrer des talents qualifiés, de coordonner et piloter des projets d&apos;envergure dans différents secteurs d&apos;activité, ou de sécuriser un projet d&apos;immigration et d&apos;études à l&apos;international (Canada, Australie, Luxembourg et autres pays d&apos;Europe, ainsi que le Maroc et la Tunisie pour les parcours étudiants en Afrique), nous mettons en œuvre une approche humaine, rigoureuse et adaptée à la réalité de chaque mandat.
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">

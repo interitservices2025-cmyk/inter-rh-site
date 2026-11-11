@@ -7,14 +7,33 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import { services } from "@/lib/data/services";
 
 export const metadata: Metadata = {
-  title: "Nos Services — Gestion des talents, Pilotage de projets & Accompagnement en immigration | INTER-RH",
+  title:
+    "Nos Services — Gestion des talents, Pilotage de projets & Immigration Internationale",
   description:
-    "Découvrez les trois domaines d'expertise d'INTER-RH : Gestion des talents & recrutement, Gestion et pilotage de projets multisectoriels de A à Z, et Accompagnement en immigration.",
-  alternates: { canonical: "/nos-services" },
+    "Découvrez les trois domaines d'expertise d'INTER-RH : Gestion des talents & recrutement au Cameroun, Gestion et pilotage de projets multisectoriels de A à Z, et Accompagnement en immigration (Canada, Australie, Luxembourg, Europe, études au Maroc et en Tunisie).",
+  keywords: [
+    "services RH Cameroun",
+    "recrutement et gestion des talents",
+    "gestion et pilotage de projets",
+    "accompagnement immigration Canada Australie Europe",
+    "études Maroc Tunisie Cameroun",
+    "prestations INTER-RH Yaoundé",
+  ],
+  alternates: { canonical: "https://www.inter-rh.com/nos-services" },
   openGraph: {
-    title: "Nos Services | INTER-RH",
+    title: "Nos Services | INTER-RH — Recrutement, Projets & Immigration",
     description:
-      "Trois domaines d'expertise au service des entreprises, des candidats et des institutions.",
+      "Trois domaines d'expertise complémentaires au service des entreprises, des porteurs de projets et des particuliers.",
+    url: "https://www.inter-rh.com/nos-services",
+    type: "website",
+    images: [
+      {
+        url: "/images/hero-poster.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Services INTER-RH — Recrutement, Pilotage de projets et Immigration",
+      },
+    ],
   },
 };
 

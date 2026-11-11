@@ -125,22 +125,22 @@ export const services: Service[] = [
     slug: "immigration",
     title: "Accompagnement en immigration",
     shortDescription:
-      "Accompagnement structuré et personnalisé dans vos démarches d'immigration vers le Canada (études, travail, résidence permanente).",
+      "Accompagnement structuré et personnalisé dans vos démarches d'immigration et de mobilité internationale (Canada, Australie, Luxembourg, Europe) ainsi que pour vos projets d'études en Afrique (Maroc, Tunisie).",
     fullDescription:
-      "Notre service d'immigration accompagne les particuliers et les professionnels à travers les différentes étapes de leur projet migratoire vers le Canada. Visa d'études, résidence permanente ou mobilité professionnelle — nous vous offrons un suivi structuré et rigoureux pour préparer et présenter votre dossier dans les meilleures conditions.",
+      "Notre service d'accompagnement en immigration et mobilité internationale guide les particuliers, les étudiants et les professionnels à travers toutes les étapes de leur projet vers le Canada, l'Australie, le Luxembourg et d'autres pays d'Europe, ainsi que vers l'Afrique du Nord (Maroc, Tunisie) pour les études supérieures. Résidence permanente, permis de travail, visa d'études ou regroupement familial — nous assurons un suivi méthodique et rigoureux pour préparer et présenter votre dossier dans les meilleures conditions.",
     secondaryDescription:
-      "Chaque parcours étant unique, nous débutons par une évaluation précise de votre profil et des programmes officiels applicables afin de vous orienter avec transparence et professionnalisme.",
+      "Chaque destination et chaque parcours ayant ses propres exigences réglementaires, nous débutons par une évaluation précise de votre profil et des programmes officiels applicables afin de vous orienter avec transparence, réalisme et professionnalisme.",
     icon: "Globe",
     imageUrl: "/images/service_immigration.jpg",
     features: [
-      "Évaluation de l'éligibilité et des options",
-      "Visa d'études pour le Canada",
-      "Résidence permanente (Entrée Express, PNP)",
-      "Permis de travail et mobilité internationale",
-      "Regroupement familial",
-      "Suivi complet tout au long de la procédure",
+      "Évaluation de l'éligibilité et orientation multi-destinations",
+      "Immigration et mobilité professionnelle (Canada, Australie, Luxembourg et pays d'Europe)",
+      "Accompagnement aux études supérieures à l'international (Canada, Europe, Australie)",
+      "Mobilité étudiante en Afrique : inscriptions et démarches pour le Maroc et la Tunisie",
+      "Résidence permanente (Entrée Express, programmes provinciaux et travailleurs qualifiés)",
+      "Permis de travail, regroupement familial et suivi complet du dossier",
     ],
-    ctaLabel: "Évaluer mon projet d'immigration",
+    ctaLabel: "Évaluer mon projet d'immigration ou d'études",
   },
 ];
 

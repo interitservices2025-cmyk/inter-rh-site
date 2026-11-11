@@ -38,9 +38,9 @@ export default function PageHero({
   size = "md",
 }: PageHeroProps) {
   const sizes = {
-    sm: "py-16",
-    md: "py-24",
-    lg: "py-32",
+    sm: "py-12 md:py-16",
+    md: "py-14 sm:py-20 md:py-24",
+    lg: "py-20 md:py-32",
   };
 
   return (
@@ -117,14 +117,14 @@ export default function PageHero({
 
           {/* CTAs */}
           {(cta || ctaSecondary) && (
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
               {cta && (
-                <Link prefetch={false} href={cta.href} className="btn-primary">
+                <Link prefetch={false} href={cta.href} className="btn-primary text-sm sm:text-base">
                   {cta.label}
                 </Link>
               )}
               {ctaSecondary && (
-                <Link prefetch={false} href={ctaSecondary.href} className="btn-outline">
+                <Link prefetch={false} href={ctaSecondary.href} className="btn-outline text-sm sm:text-base">
                   {ctaSecondary.label}
                 </Link>
               )}

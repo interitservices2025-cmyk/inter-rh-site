@@ -6,14 +6,32 @@ import PageHero from "@/components/sections/PageHero";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
-  title: "Notre Agence — Cabinet INTER-RH",
+  title: "Notre Agence — Cabinet RH, Pilotage de projets & Immigration à Yaoundé",
   description:
-    "Découvrez INTER-RH (Inter Human Ressources), cabinet spécialisé en gestion des talents, gestion et pilotage de projets et accompagnement en immigration à Yaoundé.",
-  alternates: { canonical: "/notre-agence" },
+    "Découvrez INTER-RH (Inter Human Ressources), cabinet basé à Yaoundé spécialisé en gestion des talents, recrutement, pilotage de projets multisectoriels et accompagnement en immigration internationale (Canada, Australie, Luxembourg, Europe) et études en Afrique (Maroc, Tunisie).",
+  keywords: [
+    "agence INTER-RH Yaoundé",
+    "Inter Human Ressources Cameroun",
+    "cabinet recrutement Yaoundé Tsinga",
+    "cabinet gestion de projets Cameroun",
+    "conseil immigration Canada Australie Europe Yaoundé",
+    "études Maroc Tunisie Yaoundé",
+  ],
+  alternates: { canonical: "https://www.inter-rh.com/notre-agence" },
   openGraph: {
-    title: "Notre Agence | INTER-RH",
+    title: "Notre Agence — Cabinet INTER-RH à Yaoundé",
     description:
-      "Découvrez notre cabinet et notre engagement auprès des entreprises et des particuliers au Cameroun.",
+      "Découvrez notre cabinet et notre engagement méthodologique et humain auprès des entreprises et des particuliers au Cameroun et à l'international.",
+    url: "https://www.inter-rh.com/notre-agence",
+    type: "website",
+    images: [
+      {
+        url: "/images/hero-poster.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Équipe et cabinet INTER-RH à Yaoundé",
+      },
+    ],
   },
 };
 

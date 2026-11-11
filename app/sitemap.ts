@@ -3,7 +3,7 @@ import { services } from "@/lib/data/services";
 import { newsArticles } from "@/lib/data/news";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://inter-rh.com";
+  const baseUrl = "https://www.inter-rh.com";
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -28,31 +28,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/employeurs`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/candidature`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/offres`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
+      changeFrequency: "daily",
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/actus`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.7,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 0.75,
+      priority: 0.8,
     },
   ];
 
@@ -60,14 +60,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}/services/${service.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: 0.7,
+    priority: 0.85,
   }));
 
   const articleRoutes: MetadataRoute.Sitemap = newsArticles.map((article) => ({
     url: `${baseUrl}/actus/${article.slug}`,
     lastModified: new Date(article.publishedAt),
-    changeFrequency: "yearly" as const,
-    priority: 0.6,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
   }));
 
   return [...staticRoutes, ...serviceRoutes, ...articleRoutes];

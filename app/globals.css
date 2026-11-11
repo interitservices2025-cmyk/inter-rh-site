@@ -88,19 +88,19 @@
 
   /* Boutons */
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+    @apply inline-flex items-center justify-center text-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 border-2 border-white/60 hover:border-white text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:bg-white/10;
+    @apply inline-flex items-center justify-center text-center gap-2 border-2 border-white/60 hover:border-white text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:bg-white/10;
   }
 
   .btn-outline-dark {
-    @apply inline-flex items-center gap-2 border-2 border-navy-500 hover:border-primary-500 text-navy-500 hover:text-primary-500 font-semibold px-6 py-3 rounded-full transition-all duration-200;
+    @apply inline-flex items-center justify-center text-center gap-2 border-2 border-navy-500 hover:border-primary-500 text-navy-500 hover:text-primary-500 font-semibold px-6 py-3 rounded-full transition-all duration-200;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-navy-500 font-semibold px-6 py-3 rounded-full transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply inline-flex items-center justify-center text-center gap-2 bg-white hover:bg-gray-50 text-navy-500 font-semibold px-6 py-3 rounded-full transition-all duration-200 shadow-sm hover:shadow-md;
   }
 
   /* Cards */
@@ -140,15 +140,15 @@
 
   /* Sections */
   .section-light {
-    @apply bg-[#F0F4F8] py-20;
+    @apply bg-[#F0F4F8] py-14 md:py-20 overflow-x-clip;
   }
 
   .section-white {
-    @apply bg-white py-20;
+    @apply bg-white py-14 md:py-20 overflow-x-clip;
   }
 
   .section-navy {
-    @apply bg-navy-500 py-20;
+    @apply bg-navy-500 py-14 md:py-20 overflow-x-clip;
   }
 
   /* Red left border accent */

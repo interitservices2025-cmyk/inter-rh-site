@@ -5,13 +5,32 @@ import ContactForm from "@/components/forms/ContactForm";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
-  title: "Contact — Prenez Rendez-vous | INTER-RH",
+  title: "Contact & Rendez-vous — Cabinet INTER-RH à Yaoundé, Cameroun",
   description:
-    "Contactez INTER-RH pour discuter de vos besoins en recrutement, en gestion et pilotage de projets ou en immigration. Yaoundé, Cameroun.",
-  alternates: { canonical: "/contact" },
+    "Contactez INTER-RH à Yaoundé-Tsinga (+237 679 033 398 / contact@inter-rh.com) pour vos besoins en recrutement, en gestion et pilotage de projets ou en accompagnement à l'immigration et aux études (Canada, Australie, Luxembourg, Europe, Maroc, Tunisie).",
+  keywords: [
+    "contact INTER-RH Yaoundé",
+    "adresse INTER-RH Tsinga",
+    "rendez-vous cabinet RH Cameroun",
+    "conseiller immigration Canada Australie Europe Yaoundé",
+    "études Maroc Tunisie Cameroun",
+    "accompagnement projets Cameroun",
+  ],
+  alternates: { canonical: "https://www.inter-rh.com/contact" },
   openGraph: {
-    title: "Contact | INTER-RH",
-    description: "Contactez notre équipe pour échanger sur vos projets et vos besoins.",
+    title: "Contactez INTER-RH — Yaoundé, Cameroun",
+    description:
+      "Prenez contact avec notre équipe à Yaoundé ou à distance pour échanger sur votre recrutement, votre projet d'entreprise ou votre démarche d'immigration.",
+    url: "https://www.inter-rh.com/contact",
+    type: "website",
+    images: [
+      {
+        url: "/images/hero-poster.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contacter INTER-RH à Yaoundé, Cameroun",
+      },
+    ],
   },
 };
 

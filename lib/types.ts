@@ -39,6 +39,11 @@ export interface Testimonial {
   source?: "google" | "linkedin";
 }
 
+export interface NewsArticleSource {
+  label: string;
+  url: string;
+}
+
 export interface NewsArticle {
   id: string;
   slug: string;
@@ -46,9 +51,15 @@ export interface NewsArticle {
   excerpt: string;
   content: string;
   imageUrl?: string;
+  imageAlt?: string;
   category: string;
   publishedAt: string;
   author?: string;
+  metaDescription?: string;
+  keywords?: string[];
+  sources?: NewsArticleSource[];
+  relatedServiceSlug?: string;
+  readingTime?: string;
 }
 
 export interface JobOffer {

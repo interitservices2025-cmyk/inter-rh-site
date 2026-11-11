@@ -14,18 +14,38 @@ import {
 } from "lucide-react";
 import PageHero from "@/components/sections/PageHero";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import NewsCard from "@/components/ui/NewsCard";
 import { services } from "@/lib/data/services";
+import { newsArticles } from "@/lib/data/news";
 
 export const metadata: Metadata = {
-  title: "Gestion des talents & recrutement | INTER-RH",
+  title: "Gestion des talents & recrutement au Cameroun",
   description:
-    "Analyse des besoins en personnel, définition des profils, recherche et présélection des candidats, évaluation et suivi de l'intégration. Découvrez notre accompagnement en recrutement.",
-  alternates: { canonical: "/services/gestion-des-talents" },
+    "Analyse des besoins en personnel, définition des profils, recherche et présélection des candidats, évaluation et suivi de l'intégration. Découvrez notre accompagnement en recrutement à Yaoundé et au Cameroun.",
+  keywords: [
+    "gestion des talents Cameroun",
+    "recrutement entreprise Yaoundé",
+    "présélection candidats Cameroun",
+    "évaluation compétences RH",
+    "cabinet recrutement INTER-RH",
+  ],
+  alternates: {
+    canonical: "https://www.inter-rh.com/services/gestion-des-talents",
+  },
   openGraph: {
     title: "Gestion des talents & recrutement | INTER-RH",
     description:
-      "Recrutement ciblé, sélection rigoureuse et intégration réussie de vos collaborateurs.",
-    images: ["/images/service_recrutement.jpg"],
+      "Recrutement ciblé, sélection rigoureuse et intégration réussie de vos collaborateurs au Cameroun.",
+    url: "https://www.inter-rh.com/services/gestion-des-talents",
+    type: "website",
+    images: [
+      {
+        url: "/images/hero-poster.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Gestion des talents et recrutement INTER-RH",
+      },
+    ],
   },
 };
 
@@ -90,6 +110,9 @@ const methodologyItems = [
 
 export default function GestionDesTalentsPage() {
   const otherServices = services.filter((s) => s.slug !== "gestion-des-talents");
+  const relatedArticles = newsArticles
+    .filter((a) => a.relatedServiceSlug === "gestion-des-talents")
+    .slice(0, 3);
 
   return (
     <>
@@ -224,6 +247,28 @@ export default function GestionDesTalentsPage() {
           </div>
         </div>
       </section>
+
+      {/* ===== ARTICLES LIÉS ===== */}
+      {relatedArticles.length > 0 && (
+        <section className="section-white border-t border-gray-100">
+          <div className="container-xl">
+            <AnimatedSection animation="fade-in" className="mb-10">
+              <p className="section-overline">Ressources & analyses RH</p>
+              <h2 className="text-2xl font-bold text-navy-500">
+                Articles sur le recrutement et la gestion des talents
+              </h2>
+            </AnimatedSection>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {relatedArticles.map((article, idx) => (
+                <AnimatedSection key={article.id} animation="slide-up" delay={idx * 0.08}>
+                  <NewsCard article={article} />
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ===== NOS AUTRES DOMAINES D'EXPERTISE ===== */}
       <section className="section-white">
